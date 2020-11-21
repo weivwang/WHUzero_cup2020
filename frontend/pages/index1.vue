@@ -4,26 +4,9 @@
  * @LastEditTime: 2020-11-21 21:58:00
 -->
 <template>
-<div>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  <h1>index.</h1>
-  </div>
+<div class="box">
+  <img src="@/static/lingbomen.jpg">
+</div>
 </template>
 
 <script>
@@ -33,5 +16,9 @@ export default {
 </script>
 
 <style>
+.box{
+  width: 100%;
+  height: 100%;
 
+}
 </style>
