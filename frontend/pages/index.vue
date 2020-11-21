@@ -1,73 +1,57 @@
+<!--
+ * @Date: 2020-11-21 21:08:38
+ * @LastEditors: QiuJhao
+ * @LastEditTime: 2020-11-21 22:06:46
+-->
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        WHUzero_cup2020
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div id="root">
+    <VueVideo></VueVideo>
+	<img src="@/static/1.png"/>
   </div>
 </template>
 
+import VueVideo from '@/components/VueVideo'
+
+components: {
+    VueVideo
+  },
 <script>
-export default {}
+export default {
+	data() {
+    return {
+        // 初始化0
+      time: 0,
+    };
+  },
+  methods: {
+    //   封装一个方法
+    countDown() {
+      let THIS = this;
+      THIS.time--;
+    },
+  },
+  mounted() {
+    let THIS = this;
+    // 把time改为5
+    THIS.time = 6;
+    // 设定一个定时器，每一秒调用一次coundDown方法，time-1
+    setInterval(THIS.countDown, 1000);
+  },
+  watch: {
+    //   监听time的值
+    time: function (newVal) {
+      if (newVal == 0) {
+        this.$router.push("/index1");
+      }
+    },
+  },
+};
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+<style scoped>
+.root
+{
+	width:100%;
+	height:100%;
 }
 </style>

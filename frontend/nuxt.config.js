@@ -1,3 +1,8 @@
+/*
+ * @Date: 2020-11-13 20:02:33
+ * @LastEditors: QiuJhao
+ * @LastEditTime: 2020-11-21 21:55:26
+ */
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -14,12 +19,15 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-    'ant-design-vue/dist/antd.css'
+	'assets/main.css',
+	'ant-design-vue/dist/antd.css',
+	'video.js/dist/video-js.css',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '@/plugins/antd-ui'
+	'@/plugins/antd-ui',
+	'@/plugins/video'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -28,7 +36,7 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
+    // '@nuxtjs/eslint-module'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
