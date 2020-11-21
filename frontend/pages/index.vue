@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-11-21 21:08:38
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-21 22:06:46
+ * @LastEditTime: 2020-11-21 22:41:18
 -->
 <template>
   <div id="root">
@@ -33,7 +33,7 @@ export default {
   mounted() {
     let THIS = this;
     // 把time改为5
-    THIS.time = 6;
+    THIS.time = 5;
     // 设定一个定时器，每一秒调用一次coundDown方法，time-1
     setInterval(THIS.countDown, 1000);
   },
