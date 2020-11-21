@@ -1,21 +1,7 @@
 
   <template>
    <div class="title" style="width:100%;height:100%;">
-     <div id="pano" style="width:100%;height:100%;"><noscript><table style="width:100%;height:100%;">
-       <tr style="vertical-align:middle;text-align:center;">
-         <td>ERROR:<br><br>Javascript not activated<br><br></td></tr>
-     </table>
-     </noscript>
-       <transition name = "layer_fade">
-         <div class="layer" v-if="showlayer">
-           <div class="layer_info">
-             <p class="layer_title">武汉大学</p>
-             <p class="layer_child">坐标:66.666N 88.888E</p>
-             <p class="layer_child">2018-09-09 15:09:00</p>
-             <p class="layer_child">————————</p>
-           </div>
-         </div>
-       </transition>
+     <div id="pano" style="width:100%;height:100%;">
        <div class="mouse" v-if="showpicture">
          <img src="mouse.png" class="farm_mouse_picture">
        <p class="mouse_title">左键拖动鼠标查看</p>
@@ -24,19 +10,8 @@
          <div class="farm_close_icon" @click="show =!show">
            <img src="icon/icon09.png"></div><div class="farm_picture">
        </div>
-  <div class="farm_text">
-  <p class="farm_text_title">大气农场</p>
-  <p class="farm_hostname">农场主</p>
-  <button class="farm_button">去店铺逛逛</button>
-  </div>
   </div>
   </transition>
-  </div>
-  <div class="icon" >
-  <div class="icon1 icon_child" v-on:mouseover="changeicon1color()" v-on:mouseleave="backicon1color" id="icon1"></div>
-    <a href="/"> <div class="icon2 icon_child" v-on:mouseover="changeicon2color()" v-on:mouseleave="backicon2color" id="icon2"></div></a>
-  <div class="icon3 icon_child" v-on:mouseover="changeicon3color()" v-on:mouseleave="backicon3color" id="icon3" v-on:click="showlayer =!showlayer"></div>
-  <div class="icon4 icon_child" v-on:mouseover="changeicon4color()" v-on:mouseleave="backicon4color" id="icon4" v-on:click="show =!show"></div>
   </div>
   </div>
   </template>
