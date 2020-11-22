@@ -4,6 +4,9 @@
       <div id="left" onclick="move()"></div>
       <div id="right" onclick="move()"></div>
     </div>
+  <div id="subject">
+    <h2b id="subtext">武大探险</h2b>
+  </div>
     <div class="title" style="width: 100%; height: 100%">
       <div id="pano" style="width: 100%; height: 100%">
         <transition name="fade"
@@ -193,24 +196,39 @@ body {
 #scroll {
 	position: absolute;
 	float: left;
-	margin-left: 50%;
+  margin-left: 37%;
+  margin-top: 30%;
 }
 
 #left {
   float: left;
-  width: 120px;
-  height: 632px;
+  width: 32px;
+  height: 190px;
   background: url("../static/scroll.png");
   z-index: 80;
   position: absolute;
 }
 #right {
   float: left;
-  width: 120px;
-  height: 632px;
+  width: 32px;
+  height: 190px;
   background: url("../static/scroll.png") 100% 50%;
   z-index: 80;
   position: absolute;
-  margin-left: 120px;
+  margin-left: 32px;
+}
+#subject{
+  float: left;
+  width: 360px;
+  height: 190px;
+  margin-left: 45%;
+  margin-top: 33%;
+  position: absolute;
+  z-index: 70;
+}
+#subtext{
+  color: white;
+  font-size: 50px;
+  font-family: Helvetica;
 }
 </style>
