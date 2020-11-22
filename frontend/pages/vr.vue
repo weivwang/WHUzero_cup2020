@@ -1,19 +1,19 @@
 <template>
-<div>    <div class="text">
-        <a href="#" class="text">武大探险</a>
-</div>
-
-  <div class="title" style="width: 100%; height: 100%">
-    <div id="pano" style="width: 100%; height: 100%">
-      <transition name="fade"
-      ><div class="farm_information" v-if="show">
-          <div class="farm_close_icon" @click="show = !show"></div>
-          <div class="farm_picture"></div>
-        </div>
-      </transition>
+  <div>
+    <div id="scroll">
+      <div id="left" onclick="move()"></div>
+      <div id="right" onclick="move()"></div>
     </div>
-
-  </div>
+    <div class="title" style="width: 100%; height: 100%">
+      <div id="pano" style="width: 100%; height: 100%">
+        <transition name="fade"
+          ><div class="farm_information" v-if="show">
+            <div class="farm_close_icon" @click="show = !show"></div>
+            <div class="farm_picture"></div>
+          </div>
+        </transition>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   components: {},
   head() {
     return {
-      script: [{ src: "/krpano.js" }],
+      script: [{ src: "/krpano.js" }, { src: "/scroll.js" }],
     };
   },
   mounted() {
@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 html,
 body {
   margin: 0;
@@ -55,6 +55,7 @@ body {
 }
 .title {
   position: absolute;
+  z-index: 50;
 }
 .layer {
   position: absolute;
@@ -187,5 +188,29 @@ body {
   background: rgb(231, 220, 220);
   float: left;
   margin-left: 50%;
+}
+
+#scroll {
+	position: absolute;
+	float: left;
+	margin-left: 50%;
+}
+
+#left {
+  float: left;
+  width: 120px;
+  height: 632px;
+  background: url("../static/scroll.png");
+  z-index: 80;
+  position: absolute;
+}
+#right {
+  float: left;
+  width: 120px;
+  height: 632px;
+  background: url("../static/scroll.png") 100% 50%;
+  z-index: 80;
+  position: absolute;
+  margin-left: 120px;
 }
 </style>
