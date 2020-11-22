@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
     "ant-design-vue": "^1.6.5",
+    "element-ui": "2.14.1",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
     "video.js": "^7.10.2",
