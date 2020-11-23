@@ -1,25 +1,37 @@
 <template>
   <div>
     <div id="scroll">
-      <div id="left" onclick="move()"></div>
-      <div id="right" onclick="move()"></div>
+      <div id="left" v-on:click="start = true"></div>
+      <div id="right" v-on:click="start = true"></div>
     </div>
-  <div id="subject">
-    <p id="subtext">武大探险</p>
-  </div>
+    <div id="subject">
+      <p id="subtext">武大探险</p>
+    </div>
     <div class="title" style="width: 100%; height: 100%">
-      <div id="pano" style="width: 100%; height: 100%">
-      </div>
+      <div id="pano" style="width: 100%; height: 100%"></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  components: {},
+  data() {
+    return {
+      show: false,
+      showlayer: true,
+      showpicture: true,
+      width: 32,
+    };
+  },
+  props: {
+    start: {
+      type: Boolean,
+      default: false, // 控制卷轴开始
+    },
+  },
   head() {
     return {
-      script: [{ src: "/krpano.js" }, { src: "/scroll.js" }],
+      script: [{ src: "/krpano.js" }],
     };
   },
   mounted() {
@@ -33,12 +45,25 @@ export default {
       passQueryParameters: true,
     });
   },
-  data() {
-    return {
-      show: false,
-      showlayer: true,
-      showpicture: true,
-    };
+  //TODO:使用rem适配不同的分辨率设备
+  //TODO:this.$refs.reel.clientWidth获取展开卷轴的宽度
+  methods: {
+    move() {
+      if (wid < 368) {
+        var right = document.getElementById("right");
+        wid += 20;
+        right.style.width = wid + "px";
+        var t = setTimeout("move()", 100);
+        if (wid > 368) clearTimeout(t);
+      }
+    },
+  },
+  watch: {
+    start: function (e) {
+      if (e == true) {
+        this.move();
+      }
+    },
   },
 };
 </script>
@@ -187,8 +212,8 @@ body {
 }
 
 #scroll {
-	position: absolute;
-	float: left;
+  position: absolute;
+  float: left;
   margin-left: 37%;
   margin-top: 20%;
 }
@@ -210,7 +235,7 @@ body {
   position: absolute;
   margin-left: 32px;
 }
-#subject{
+#subject {
   float: left;
   width: 360px;
   height: 190px;
@@ -219,7 +244,7 @@ body {
   position: absolute;
   z-index: 70;
 }
-#subtext{
+#subtext {
   color: white;
   font-size: 50px;
   font-family: Helvetica;
