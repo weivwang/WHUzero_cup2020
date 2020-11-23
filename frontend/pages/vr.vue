@@ -197,7 +197,7 @@ body {
 	position: absolute;
 	float: left;
   margin-left: 37%;
-  margin-top: 30%;
+  margin-top: 20%;
 }
 
 #left {
@@ -222,7 +222,7 @@ body {
   width: 360px;
   height: 190px;
   margin-left: 45%;
-  margin-top: 33%;
+  margin-top: 23%;
   position: absolute;
   z-index: 70;
 }
