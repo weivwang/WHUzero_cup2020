@@ -5,16 +5,10 @@
       <div id="right" onclick="move()"></div>
     </div>
   <div id="subject">
-    <h2b id="subtext">武大探险</h2b>
+    <p id="subtext">武大探险</p>
   </div>
     <div class="title" style="width: 100%; height: 100%">
       <div id="pano" style="width: 100%; height: 100%">
-        <transition name="fade"
-          ><div class="farm_information" v-if="show">
-            <div class="farm_close_icon" @click="show = !show"></div>
-            <div class="farm_picture"></div>
-          </div>
-        </transition>
       </div>
     </div>
   </div>
@@ -29,7 +23,6 @@ export default {
     };
   },
   mounted() {
-    //console.log(embedpano)
     setInterval(this.closepicture, 2000);
     embedpano({
       swf: "krpano.swf",
