@@ -5,7 +5,7 @@ package models
 func migration() {
 	// 自动迁移模式
 	//DB.AutoMigrate(&User{}, &Comment{})
-	DB.AutoMigrate(&article{}, &User{}, &Comment{})
+	DB.AutoMigrate(&article{}, &User{}, &Comment{}, &Star{})
 	DB.Model(&Comment{}).AddForeignKey("user_id", "users(id)",
 		"CASCADE", "CASCADE")
 	DB.Model(&Comment{}).AddForeignKey("article_id", "articles(id)",
