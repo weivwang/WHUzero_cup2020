@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-11-13 20:02:33
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-21 21:55:26
+ * @LastEditTime: 2020-11-24 20:54:01
  */
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -22,12 +22,14 @@ export default {
 	'assets/main.css',
 	'ant-design-vue/dist/antd.css',
 	'video.js/dist/video-js.css',
+	'element-ui/lib/theme-chalk/index.css',
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
 	'@/plugins/antd-ui',
-	'@/plugins/video'
+	'@/plugins/video',
+	'@/plugins/element-ui',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -49,6 +51,9 @@ export default {
   axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {
-  }
+    build: {
+        transpile: [
+          /^element-ui/,
+        ],
+}
 }
