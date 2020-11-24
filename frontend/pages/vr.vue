@@ -15,7 +15,7 @@
     <p id="subtext">武大探险</p>
   </div>
   <div>
-  <a-row>
+  <a-row id="buttonrow">
       <a-col :span="12">
         <a-button type="primary" id="starbox" size="large">
       我的收藏
@@ -30,9 +30,7 @@
 
 </div>
 
-    <div class="title" style="width: 100%; height: 100%">
       <div id="pano" style="width: 100%; height: 100%"></div>
-    </div>
   </div>
 </template>
 
@@ -87,10 +85,12 @@ export default {
 <style scoped>
 html,
 body {
-  margin: 0;
+  margin-top:-100px;
   height: 100%;
 }
-.title {
+#pano {
+  margin: 0;
+  float:left;
   position: absolute;
   z-index: 50;
 }
@@ -282,9 +282,6 @@ body {
   z-index: 80;
 }
 #buttonrow{
-  float: left;
-  margin-left: 120%;
-
-
+margin-top:50%;
 }
 </style>
