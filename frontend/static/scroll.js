@@ -11,6 +11,6 @@ function move() {
   var right = document.getElementById("right");
   wid += 20;
   right.style.width = wid + "px";
-  t = setTimeout("move()", 100);
+  t = setTimeout("move()", 30);
   if (wid > 368) clearTimeout(t);
 }
