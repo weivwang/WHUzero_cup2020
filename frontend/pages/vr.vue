@@ -43,14 +43,11 @@ export default {
       show: false,
       showlayer: true,
       showpicture: true,
-      width: 32,
+      wid: 32,
+      timer: "",
+      start: false,
+      timer2: "",
     };
-  },
-  props: {
-    start: {
-      type: Boolean,
-      default: false, // 控制卷轴开始
-    },
   },
   head() {
     return {
@@ -58,33 +55,29 @@ export default {
     };
   },
   mounted() {
-    setInterval(this.closepicture, 2000);
-    embedpano({
-      swf: "krpano.swf",
-      xml: "krpano.xml",
-      target: "pano",
-      html5: "auto",
-      mobilescale: 1.0,
-      passQueryParameters: true,
-    });
+    this.timer2 = setTimeout(this.init, 300);
   },
   //TODO:使用rem适配不同的分辨率设备
   //TODO:this.$refs.reel.clientWidth获取展开卷轴的宽度
   methods: {
+    init() {
+      embedpano({
+        target: "pano",
+        html5: "only",
+      });
+    },
     move() {
-      if (wid < 368) {
+      if (this.wid < 368) {
         var right = document.getElementById("right");
-        wid += 20;
-        right.style.width = wid + "px";
-        var t = setTimeout("move()", 100);
-        if (wid > 368) clearTimeout(t);
-      }
+        this.wid += 3;
+        right.style.width = this.wid + "px";
+      } else clearInterval(this.timer);
     },
   },
   watch: {
     start: function (e) {
       if (e == true) {
-        this.move();
+        this.timer = setInterval(this.move, 10);
       }
     },
   },
@@ -240,13 +233,6 @@ body {
   margin-left: 37%;
   margin-top: 20%;
 }
-#scroll1 {
-	position: absolute;
-	float: left;
-  margin-left: 75%;
-  margin-top: 36%;
-}
-
 
 #left {
   float: left;
@@ -265,8 +251,7 @@ body {
   position: absolute;
   margin-left: 32px;
 }
-
-#subject{
+#subject {
   float: left;
   width: 360px;
   height: 190px;

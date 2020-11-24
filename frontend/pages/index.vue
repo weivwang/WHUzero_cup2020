@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-11-21 21:08:38
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-21 22:41:18
+ * @LastEditTime: 2020-11-24 21:52:33
 -->
 <template>
   <div id="root">
@@ -41,7 +41,7 @@ export default {
     //   监听time的值
     time: function (newVal) {
       if (newVal == 0) {
-        this.$router.push("/index1");
+		this.$router.push({path: 'vr'});
       }
     },
   },
