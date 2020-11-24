@@ -1,36 +1,21 @@
 <template>
   <div>
-    <!-- <div id="scroll1"> -->
-
-      <!-- <div id="left" onclick="move()"></div>
-      <a href="/index.vue">
-      <div id="right" onclick="move()"></div>
-      </a> -->
-      <!-- <div id = "left"></div>
-      <div id = "right"></div>
-
-    </div> -->
-
-  <div id="subject">
-    <p id="subtext">武大探险</p>
-  </div>
-  <div>
-  <a-row id="buttonrow">
-      <a-col :span="12">
-        <a-button type="primary" id="starbox" size="large">
-      我的收藏
-    </a-button>
-      </a-col>
-      <a-col :span="12">
-        <a-button type="primary" id="map" size="large">
-      武大探险图
-    </a-button>
-      </a-col>
-    </a-row>
-
-</div>
-
-      <div id="pano" style="width: 100%; height: 100%"></div>
+    <div id="pano" style="width: 100%; height: 100%"></div>
+    <div id="subject">
+      <p id="subtext">武大探险</p>
+    </div>
+    <div id="buttonrow">
+      <a-row>
+        <a-col :span="12">
+          <a-button type="primary" id="starbox" size="large">
+            我的收藏
+          </a-button>
+        </a-col>
+        <a-col :span="12">
+          <a-button type="primary" id="map" size="large"> 武大探险图 </a-button>
+        </a-col>
+      </a-row>
+    </div>
   </div>
 </template>
 
@@ -38,12 +23,6 @@
 export default {
   data() {
     return {
-      show: false,
-      showlayer: true,
-      showpicture: true,
-      wid: 32,
-      timer: "",
-      start: false,
       timer2: "",
     };
   },
@@ -55,28 +34,12 @@ export default {
   mounted() {
     this.timer2 = setTimeout(this.init, 300);
   },
-  //TODO:使用rem适配不同的分辨率设备
-  //TODO:this.$refs.reel.clientWidth获取展开卷轴的宽度
   methods: {
     init() {
       embedpano({
         target: "pano",
         html5: "only",
       });
-    },
-    move() {
-      if (this.wid < 368) {
-        var right = document.getElementById("right");
-        this.wid += 3;
-        right.style.width = this.wid + "px";
-      } else clearInterval(this.timer);
-    },
-  },
-  watch: {
-    start: function (e) {
-      if (e == true) {
-        this.timer = setInterval(this.move, 10);
-      }
     },
   },
 };
@@ -85,178 +48,18 @@ export default {
 <style scoped>
 html,
 body {
-  margin-top:-100px;
   height: 100%;
 }
 #pano {
-  margin: 0;
-  float:left;
-  position: absolute;
-  z-index: 50;
-}
-.layer {
-  position: absolute;
-  bottom: 0;
-  left: 1%;
-  width: 270px;
-  height: 50%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 2;
-  color: rgba(255, 255, 255, 0.95);
-  font-family: "Yu Gothic UI";
-  font-weight: bold;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-.icon {
-  position: absolute;
-  z-index: 2;
-  right: 1%;
-  top: 3%;
-}
-
-.layer_info {
-  margin-left: 10%;
-}
-.layer_title {
-  font-size: 24px;
-  margin-top: 7%;
-}
-.layer_child {
-  font-size: 16px;
-  margin-top: 8%;
-}
-.farm_information {
-  border: 1px rgba(0, 0, 0, 0.8) solid;
-  width: 300px;
-  height: 350px;
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  margin-left: -150px;
-  margin-top: -175px;
-  background: rgba(0, 0, 0, 0.75);
-  color: rgba(255, 255, 255, 0.9);
-  font-family: 楷体;
-  font-weight: bold;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.farm_picture {
-  background: url("../static/picture1.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 60%;
-}
-.farm_text_title {
-  height: 40%;
-  text-align: center;
-  font-size: 20px;
-  margin-top: 8%;
-}
-.farm_hostname {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 5%;
-  color: rgba(255, 255, 255, 0.6);
-}
-.farm_button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 6%;
-  background: rgba(0, 0, 0, 0.65);
-  width: 50%;
-  height: 30px;
-  border-color: aquamarine;
-  border-radius: 25px;
-  font-size: 16px;
-  font-family: 楷体;
-  color: rgba(255, 255, 255, 0.9);
-}
-.mouse {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  top: 50%;
-  left: 50%;
-  margin-top: -75px;
-  margin-left: -75px;
-  z-index: 2;
-}
-.mouse_title {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 13px;
-  position: absolute;
-  bottom: 20px;
-  left: 25px;
-}
-.farm_mouse_picture {
-  width: 150px;
-  height: 150px;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-.layer_fade-enter-active {
-  transition: all 0.2s ease;
-}
-.layer_fade-leave-active {
-  transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
-}
-.layer_fade-enter,
-.layer_fade-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
-.text {
-  width: 50px;
-  height: 50px;
-  background: rgb(231, 220, 220);
-  float: left;
-  margin-left: 50%;
-}
-
-#scroll {
-  position: absolute;
-  float: left;
-  margin-left: 37%;
-  margin-top: 20%;
-}
-
-#left {
-  float: left;
-  width: 32px;
-  height: 190px;
-  background: url("../static/scroll.png");
-  z-index: 80;
-  position: absolute;
-}
-#right {
-  float: left;
-  width: 32px;
-  height: 190px;
-  background: url("../static/scroll.png") 100% 50%;
-  z-index: 80;
-  position: absolute;
-  margin-left: 32px;
+  top: 0;
+  position: fixed;
 }
 #subject {
   float: left;
   width: 360px;
   height: 190px;
   margin-left: 45%;
-  margin-top: 23%;
+  margin-top: -10%;
   position: absolute;
   z-index: 70;
 }
@@ -265,7 +68,7 @@ body {
   font-size: 50px;
   font-family: Helvetica;
 }
-#starbox{
+#starbox {
   width: 150px;
   height: 75px;
   float: left;
@@ -273,7 +76,7 @@ body {
   position: absolute;
   z-index: 80;
 }
-#map{
+#map {
   width: 150px;
   height: 75px;
   float: left;
@@ -281,7 +84,7 @@ body {
   position: absolute;
   z-index: 80;
 }
-#buttonrow{
-margin-top:50%;
+#buttonrow {
+  margin-top: 30%;
 }
 </style>
