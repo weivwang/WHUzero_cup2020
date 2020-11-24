@@ -49,8 +49,8 @@ export default {
         var right = document.getElementById("right");
         this.wid += 3;
         right.style.width = this.wid + "px";
-        if (this.wid > 368) clearInterval(timer);
-      }
+	  }
+	  else clearInterval(this.timer);
     },
   },
   watch: {
