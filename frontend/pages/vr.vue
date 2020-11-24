@@ -1,27 +1,12 @@
 <template>
   <div>
-    <div id="scroll1">
-
-      <!-- <div id="left" onclick="move()"></div>
-      <a href="/index.vue">
-      <div id="right" onclick="move()"></div>
-      </a> -->
-      <div id = "left"></div>
-      <div id = "right"></div>
-
+    <div id="scroll">
+      <div id="left" v-on:click="start = true"></div>
+      <div id="right" v-on:click="start = true"></div>
     </div>
-
-      <el-button type="primary" id="starbox">主要按钮</el-button>
-
-
-      <el-button type="primary" id="albumbox">主要按钮</el-button>
-
-
-  <div id="subject">
-    <p id="subtext">武大探险</p>
-  </div>
-
-
+    <div id="subject">
+      <p id="subtext">武大探险</p>
+    </div>
     <div class="title" style="width: 100%; height: 100%">
       <div id="pano" style="width: 100%; height: 100%"></div>
     </div>
@@ -35,14 +20,10 @@ export default {
       show: false,
       showlayer: true,
       showpicture: true,
-      width: 32,
+	  wid: 32,
+	  timer: '',
+	  start: false,
     };
-  },
-  props: {
-    start: {
-      type: Boolean,
-      default: false, // 控制卷轴开始
-    },
   },
   head() {
     return {
@@ -64,19 +45,18 @@ export default {
   //TODO:this.$refs.reel.clientWidth获取展开卷轴的宽度
   methods: {
     move() {
-      if (wid < 368) {
+      if (this.wid < 368) {
         var right = document.getElementById("right");
-        wid += 20;
-        right.style.width = wid + "px";
-        var t = setTimeout("move()", 100);
-        if (wid > 368) clearTimeout(t);
+        this.wid += 3;
+        right.style.width = this.wid + "px";
+        if (this.wid > 368) clearInterval(timer);
       }
     },
   },
   watch: {
     start: function (e) {
       if (e == true) {
-        this.move();
+		this.timer = setInterval(this.move, 10);
       }
     },
   },
@@ -232,13 +212,6 @@ body {
   margin-left: 37%;
   margin-top: 20%;
 }
-#scroll1 {
-	position: absolute;
-	float: left;
-  margin-left: 75%;
-  margin-top: 36%;
-}
-
 
 #left {
   float: left;
@@ -257,8 +230,7 @@ body {
   position: absolute;
   margin-left: 32px;
 }
-
-#subject{
+#subject {
   float: left;
   width: 360px;
   height: 190px;
@@ -271,20 +243,5 @@ body {
   color: white;
   font-size: 50px;
   font-family: Helvetica;
-}
-#starbox{
-
-  float: left;
-  margin-left: 30%;
-  margin-top: 40%;
-  position: absolute;
-  z-index: 80;
-}
-#albumbox{
-  float: left;
-  margin-left: 50%;
-  margin-top: 40%;
-  position: absolute;
-  z-index: 80;
 }
 </style>
