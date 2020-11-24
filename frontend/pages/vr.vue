@@ -1,26 +1,34 @@
 <template>
   <div>
-    <div id="scroll1">
+    <!-- <div id="scroll1"> -->
 
       <!-- <div id="left" onclick="move()"></div>
       <a href="/index.vue">
       <div id="right" onclick="move()"></div>
       </a> -->
-      <div id = "left"></div>
+      <!-- <div id = "left"></div>
       <div id = "right"></div>
 
-    </div>
-
-      <el-button type="primary" id="starbox">主要按钮</el-button>
-
-
-      <el-button type="primary" id="albumbox">主要按钮</el-button>
-
+    </div> -->
 
   <div id="subject">
     <p id="subtext">武大探险</p>
   </div>
+  <div>
+  <a-row>
+      <a-col :span="12">
+        <a-button type="primary" id="starbox" size="large">
+      我的收藏
+    </a-button>
+      </a-col>
+      <a-col :span="12">
+        <a-button type="primary" id="map" size="large">
+      武大探险图
+    </a-button>
+      </a-col>
+    </a-row>
 
+</div>
 
     <div class="title" style="width: 100%; height: 100%">
       <div id="pano" style="width: 100%; height: 100%"></div>
@@ -273,18 +281,25 @@ body {
   font-family: Helvetica;
 }
 #starbox{
-
+  width: 150px;
+  height: 75px;
   float: left;
-  margin-left: 30%;
-  margin-top: 40%;
+  margin-left: 50%;
   position: absolute;
   z-index: 80;
 }
-#albumbox{
+#map{
+  width: 150px;
+  height: 75px;
   float: left;
-  margin-left: 50%;
-  margin-top: 40%;
+  margin-left: 35%;
   position: absolute;
   z-index: 80;
+}
+#buttonrow{
+  float: left;
+  margin-left: 120%;
+
+
 }
 </style>
