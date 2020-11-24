@@ -20,9 +20,10 @@ export default {
       show: false,
       showlayer: true,
       showpicture: true,
-	  wid: 32,
-	  timer: '',
-	  start: false,
+      wid: 32,
+      timer: "",
+      start: false,
+      timer2: "",
     };
   },
   head() {
@@ -31,32 +32,29 @@ export default {
     };
   },
   mounted() {
-    setInterval(this.closepicture, 2000);
-    embedpano({
-      swf: "krpano.swf",
-      xml: "krpano.xml",
-      target: "pano",
-      html5: "auto",
-      mobilescale: 1.0,
-      passQueryParameters: true,
-    });
+    this.timer2 = setTimeout(this.init, 300);
   },
   //TODO:使用rem适配不同的分辨率设备
   //TODO:this.$refs.reel.clientWidth获取展开卷轴的宽度
   methods: {
+    init() {
+      embedpano({
+        target: "pano",
+        html5: "only",
+      });
+    },
     move() {
       if (this.wid < 368) {
         var right = document.getElementById("right");
         this.wid += 3;
         right.style.width = this.wid + "px";
-	  }
-	  else clearInterval(this.timer);
+      } else clearInterval(this.timer);
     },
   },
   watch: {
     start: function (e) {
       if (e == true) {
-		this.timer = setInterval(this.move, 10);
+        this.timer = setInterval(this.move, 10);
       }
     },
   },
