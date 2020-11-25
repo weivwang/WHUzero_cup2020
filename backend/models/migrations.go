@@ -16,4 +16,8 @@ func migration() {
 		"CASCADE", "CASCADE")
 	DB.Model(&Comment{}).AddForeignKey("reply_to_id", "users(id)",
 		"CASCADE", "CASCADE")
+	DB.Model(&Star{}).AddForeignKey("user_id", "users(id)",
+		"CASCADE", "CASCADE")
+	DB.Model(&Star{}).AddForeignKey("article_id", "articles(id)",
+		"CASCADE", "CASCADE")
 }

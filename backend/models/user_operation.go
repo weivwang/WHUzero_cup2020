@@ -2,9 +2,7 @@ package models
 
 import "time"
 
-const (
-	CommentEveryPageCount = 500
-)
+const CommentEveryPageCount int = 500
 
 type Comment struct {
 	ID        uint `gorm:"primary_key"`
@@ -30,4 +28,8 @@ type Comment struct {
 type Star struct {
 	ID        uint `gorm:"primary_key"`
 	CreatedAt time.Time
+	User      User    `gorm:"foreignkey:UserID;association_foreignkey:ID"`
+	UserID    uint    `gorm:"not null"`
+	Article   article `gorm:"foreignkey:articleID;association_foreignkey:ID"`
+	ArticleID uint    `gorm:"not null"`
 }
