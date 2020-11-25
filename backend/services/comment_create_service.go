@@ -37,9 +37,9 @@ func (service *CreateCommentService) Create(user *models.User) *serializers.Resp
 		var replyToUser models.User
 		if err := models.DB.Find(&replyToUser, service.ReplyToID).Error; err != nil {
 			return &serializers.Response{
-				Status:e.SELECT_ERROR,
-				Message:e.GetMsg(e.SELECT_ERROR),
-				Error:err.Error(),
+				Status:  e.SELECT_ERROR,
+				Message: e.GetMsg(e.SELECT_ERROR),
+				Error:   err.Error(),
 			}
 		}
 		comment.ReplyTo = replyToUser

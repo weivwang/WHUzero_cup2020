@@ -14,7 +14,7 @@ type DataList struct {
 
 func BuildList(items interface{}, total uint) DataList {
 	return DataList{
-			Items: items,
-			Total: total,
+		Items: items,
+		Total: total,
 	}
 }

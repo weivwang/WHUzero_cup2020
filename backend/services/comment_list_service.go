@@ -12,7 +12,7 @@ type CommentListService struct {
 
 func (service *CommentListService) List(articleID uint, user *models.User, p string) *serializers.Response {
 	page, _ := strconv.Atoi(p)
-	start := models.CommentEveryPageCount * (page-1)
+	start := models.CommentEveryPageCount * (page - 1)
 
 	// 获取顶级评论并做分页
 	var comments []models.Comment
@@ -32,9 +32,9 @@ func (service *CommentListService) List(articleID uint, user *models.User, p str
 		Where("article_id=? and parent_id is null", articleID).
 		Count(&total).Error; err != nil {
 		return &serializers.Response{
-			Status: e.SELECT_ERROR,
+			Status:  e.SELECT_ERROR,
 			Message: e.GetMsg(e.SELECT_ERROR),
-			Error: err.Error(),
+			Error:   err.Error(),
 		}
 	}
 
@@ -54,7 +54,7 @@ func (service *CommentListService) List(articleID uint, user *models.User, p str
 	return &serializers.Response{
 		Status:  e.SUCCESS,
 		Message: e.GetMsg(e.SUCCESS),
-		Data:    serializers.BuildList(serializers.BuildComments(comments),
+		Data: serializers.BuildList(serializers.BuildComments(comments),
 			uint(total)),
 	}
 }

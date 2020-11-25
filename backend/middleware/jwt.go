@@ -1,10 +1,10 @@
 package middleware
 
 import (
-	"github.com/gin-gonic/gin"
 	"comment/models"
 	"comment/serializers"
 	"comment/util"
+	"github.com/gin-gonic/gin"
 	"net/http"
 	"time"
 )
@@ -34,8 +34,8 @@ func JWT() gin.HandlerFunc {
 
 		if code != http.StatusOK {
 			c.JSON(200, serializers.Response{
-				Status:code,
-				Message:"forbidden",
+				Status:  code,
+				Message: "forbidden",
 			})
 			c.Abort()
 			return
@@ -43,4 +43,3 @@ func JWT() gin.HandlerFunc {
 		c.Next()
 	}
 }
-

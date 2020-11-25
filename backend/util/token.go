@@ -14,24 +14,22 @@ var (
 	ExpireTime = 30 * 24 * time.Hour
 )
 
-
 type Claims struct {
-	UserId uint `json:"user_id"`
+	UserId   uint   `json:"user_id"`
 	UserName string `json:"user_name"`
 	jwt.StandardClaims
 }
 
-
-func GenerateToken(userid uint, username string) string  {
+func GenerateToken(userid uint, username string) string {
 	nowTime := time.Now()
 	expireTime := nowTime.Add(ExpireTime)
 
 	user := Claims{
 		userid,
 		username,
-		jwt.StandardClaims {
+		jwt.StandardClaims{
 			ExpiresAt: expireTime.Unix(),
-			Issuer: "giligili",
+			Issuer:    "giligili",
 		},
 	}
 	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, user)

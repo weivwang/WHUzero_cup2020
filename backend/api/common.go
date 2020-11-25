@@ -7,4 +7,3 @@ import (
 func Ping(c *gin.Context) {
 
 }
-
