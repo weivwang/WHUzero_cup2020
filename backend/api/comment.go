@@ -24,9 +24,8 @@ func CommentList(c *gin.Context) {
 		c.JSON(400, err.Error())
 	} else {
 		articleID, _ := strconv.Atoi(c.Param("article_id"))
-		user := models.CurrentUser(c)
 		p := c.DefaultQuery("p", "1")
-		res := service.List(uint(articleID), user, p)
+		res := service.List(uint(articleID), p)
 		c.JSON(200, res)
 	}
 }

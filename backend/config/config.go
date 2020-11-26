@@ -5,9 +5,8 @@ import (
 	//"comment/cache"
 	"comment/models"
 	"comment/util"
-	"os"
-
 	"github.com/joho/godotenv"
+	"os"
 )
 
 var CurrentTime string
@@ -16,7 +15,9 @@ var CurrentTime string
 func Init() {
 	// 从本地读取环境变量
 	CurrentTime = "2006-01-02 15:04:05"
-	godotenv.Load()
+	if err := godotenv.Load(); err != nil {
+		util.Log().Panic("翻译文件加载失败", err)
+	}
 	gin.SetMode(os.Getenv("GIN_MODE"))
 
 	// 设置日志级别

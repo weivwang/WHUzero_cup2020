@@ -20,6 +20,9 @@ var MsgFlags = map[int]string{
 	PASSWORD_TOO_SHORT:           "密码过短",
 	PASSWORD_TOO_LONG:            "密码过长",
 	INPUT_EMPTY:                  "输入为空",
+	CONTENT_TOO_SHORT:            "内容过短",
+	ALREADY_STAR:                 "收藏过了",
+	NO_STAR:                      "没有收藏",
 }
 
 func GetMsg(code int) string {

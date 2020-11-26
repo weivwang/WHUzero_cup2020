@@ -20,4 +20,7 @@ const (
 	PASSWORD_TOO_SHORT           = 40007
 	PASSWORD_TOO_LONG            = 40008
 	INPUT_EMPTY                  = 40009
+	CONTENT_TOO_SHORT            = 40010
+	ALREADY_STAR                 = 40011
+	NO_STAR                      = 40012
 )

@@ -25,6 +25,9 @@ func NewRouter() *gin.Engine {
 			authed.POST("comment", api.CreateComment)
 			authed.GET("comment/:article_id", api.CommentList)
 			authed.GET("me/info", api.CurrentUserInfo)
+			authed.POST("star/create", api.CreateStar)
+			authed.POST("star/delete", api.DeleteStar)
+			authed.GET("star/list", api.StarList)
 		}
 	}
 

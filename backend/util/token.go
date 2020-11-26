@@ -29,7 +29,7 @@ func GenerateToken(userid uint, username string) string {
 		username,
 		jwt.StandardClaims{
 			ExpiresAt: expireTime.Unix(),
-			Issuer:    "giligili",
+			Issuer:    "comment",
 		},
 	}
 	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, user)

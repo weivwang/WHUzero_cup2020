@@ -10,7 +10,7 @@ import (
 type CommentListService struct {
 }
 
-func (service *CommentListService) List(articleID uint, user *models.User, p string) *serializers.Response {
+func (service *CommentListService) List(articleID uint, p string) *serializers.Response {
 	page, _ := strconv.Atoi(p)
 	start := models.CommentEveryPageCount * (page - 1)
 
