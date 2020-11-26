@@ -1,7 +1,16 @@
+<!--
+ * @Date: 2020-11-24 20:28:51
+ * @LastEditors: QiuJhao
+ * @LastEditTime: 2020-11-26 23:06:21
+-->
 <template>
-  <div>
-    <div id="left" v-on:click="start = true"></div>
-    <div id="right" v-on:click="start = true"></div>
+  <div id="root">
+    <!-- <div id="left" v-on:click="start = true"></div>
+    <div id="right" v-on:click="start = true"></div> -->
+    <div id="map">
+      <img id="pmap" src="../static/map.jpg">
+      <div id="area1"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -57,5 +66,17 @@ export default {
   z-index: 80;
   position: absolute;
   margin-left: 32px;
+}
+#map {
+  float:left;
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+#pmap {
+  width:100%;
+}
+#area1 {
+  
 }
 </style>
