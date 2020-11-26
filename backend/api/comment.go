@@ -29,3 +29,5 @@ func CommentList(c *gin.Context) {
 		c.JSON(200, res)
 	}
 }
+
+//TODO:like

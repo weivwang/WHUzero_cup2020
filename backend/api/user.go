@@ -1,6 +1,7 @@
 package api
 
 import (
+	"comment/e"
 	"comment/models"
 	"comment/serializers"
 	"comment/services"
@@ -29,5 +30,9 @@ func Login(c *gin.Context) {
 
 func CurrentUserInfo(c *gin.Context) {
 	user := models.CurrentUser(c)
-	c.JSON(200, serializers.BuildUser(*user))
+	c.JSON(200, &serializers.Response{
+		Status:  e.SUCCESS,
+		Message: e.GetMsg(e.SUCCESS),
+		Data:    serializers.BuildUser(*user),
+	})
 }
