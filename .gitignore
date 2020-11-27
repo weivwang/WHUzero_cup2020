@@ -21,3 +21,5 @@ yarn-error.log*
 *.exe
 
 frontend/.nuxt/*
+go.sum
+.env
