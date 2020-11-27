@@ -22,3 +22,4 @@ yarn-error.log*
 
 frontend/.nuxt/*
 go.sum
+.env
