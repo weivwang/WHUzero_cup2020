@@ -31,6 +31,8 @@ export default {
     },
   },
   mounted() {
+	  this.$router.push('/Introduction')
+
     let THIS = this;
     // 把time改为5
     THIS.time = 5;

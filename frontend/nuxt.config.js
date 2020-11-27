@@ -22,14 +22,16 @@ export default {
 	'assets/main.css',
 	'ant-design-vue/dist/antd.css',
 	'video.js/dist/video-js.css',
-	'element-ui/lib/theme-chalk/index.css',
+    { src: "swiper/css/swiper.css" },
+    { src: "~/plugins/swiper.js", ssr: false },
+    'element-ui/lib/theme-chalk/index.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
 	'@/plugins/antd-ui',
 	'@/plugins/video',
-	'@/plugins/element-ui',
+    '@/plugins/element-ui.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -51,9 +53,6 @@ export default {
   axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-    build: {
-        transpile: [
-          /^element-ui/,
-        ],
-}
+  build: {
+  }
 }
