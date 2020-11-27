@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-11-13 20:02:33
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-24 20:54:01
+ * @LastEditTime: 2020-11-27 23:58:03
  */
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -29,7 +29,8 @@ export default {
   plugins: [
 	'@/plugins/antd-ui',
 	'@/plugins/video',
-	'@/plugins/element-ui',
+  '@/plugins/element-ui',
+  '@/plugins/axios'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -43,8 +44,6 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
