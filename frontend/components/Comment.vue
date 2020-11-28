@@ -1,9 +1,9 @@
 <!--
  * @Date: 2020-11-28 13:45:02
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-28 22:21:59
+ * @LastEditTime: 2020-11-29 00:52:54
  -->
- <template>
+<template>
   <div class="container">
     <el-form
       :model="ruleForm"
@@ -15,7 +15,7 @@
       <el-form-item prop="content">
         <el-input
           :rows="3"
-          autofocus="true"
+          autofocus="autofocus"
           maxlength="250"
           placeholder="写下你的想法"
           resize="none"
@@ -26,13 +26,13 @@
       </el-form-item>
       <el-form-item>
         <el-button @click="submitComment" style="float: right" type="primary"
-          >提交</el-button
-        >
+          >提交
+        </el-button>
       </el-form-item>
     </el-form>
     <div class="comment" v-for="item in comments" v-if="$store.state.token">
       <hr />
-      <img class="comment_user_head" src="../static/user.png" />
+      <img class="comment_user_head" src="../static/user.png" alt="头像" />
       <div>{{ item.user.username }}</div>
       <span class="date">{{ item.created_at }}</span>
 
@@ -43,7 +43,7 @@
 
       <div style="margin-left: 70px">
         <div style="padding-bottom: 15px" v-for="reply in item.replys">
-          <img class="comment_user_head" src="../static/user.png" />
+          <img class="comment_user_head" src="../static/user.png" alt="头像" />
           <span>{{ reply.user.username }}</span
           ><span>: </span>
           <span>@{{ reply.reply_to.username }}</span>
@@ -60,7 +60,6 @@
               <el-input
                 :placeholder="placeholder"
                 :rows="3"
-                autofocus="true"
                 maxlength="250"
                 resize="none"
                 show-word-limit
@@ -71,8 +70,8 @@
             </el-form-item>
             <el-form-item>
               <el-button @click="submitReply" style="float: right"
-                >确定</el-button
-              >
+                >确定
+              </el-button>
             </el-form-item>
           </el-form>
         </div>
@@ -102,8 +101,16 @@ export default {
       },
       rules: {
         content: [
-          { required: true, message: "请输入评论内容", trigger: "submit" },
-          { min: 3, message: "至少输入3个字符", trigger: "submit" },
+          {
+            required: true,
+            message: "请输入评论内容",
+            trigger: "submit",
+          },
+          {
+            min: 3,
+            message: "至少输入3个字符",
+            trigger: "submit",
+          },
         ],
       },
       ruleForm2: {
@@ -111,8 +118,16 @@ export default {
       },
       rules2: {
         content: [
-          { required: true, message: "请输入评论内容", trigger: "submit" },
-          { min: 3, message: "至少输入3个字符", trigger: "submit" },
+          {
+            required: true,
+            message: "请输入评论内容",
+            trigger: "submit",
+          },
+          {
+            min: 3,
+            message: "至少输入3个字符",
+            trigger: "submit",
+          },
         ],
       },
       count: 0,
@@ -156,7 +171,7 @@ export default {
   created() {
     let aid = parseInt(this.article_id);
     console.log("/comment/" + aid);
-    console.log(this.$store.state.token)
+    console.log(this.$store.state.token);
     // 获取所有评论
     axios
       .get("/comment/" + aid, {
@@ -282,10 +297,6 @@ export default {
   border-radius: 50%;
   float: left;
   margin-right: 20px;
-}
-
-.el-tag {
-  cursor: pointer;
 }
 
 .date {

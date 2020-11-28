@@ -1,117 +1,130 @@
 <!--
  * @Date: 2020-11-27 00:18:55
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-28 00:01:22
+ * @LastEditTime: 2020-11-29 00:23:19
 -->
 <template>
-    <div class="register">
-        <el-form :model="ruleForm" :rules="rules" label-width="100px" ref="ruleForm">
-            <el-form-item label="用户名" prop="username">
-                <el-input v-model="ruleForm.username"></el-input>
-            </el-form-item>
-            <el-form-item label="密码" prop="password">
-                <el-input autocomplete="off" type="password" v-model="ruleForm.password"></el-input>
-            </el-form-item>
-            <el-form-item label="确认密码" prop="passwordConfirm">
-                <el-input autocomplete="off" type="password" v-model="ruleForm.passwordConfirm"></el-input>
-            </el-form-item>
-  </el-select>
-            </el-form-item>
-            <el-form-item>
-                <el-button @click="submitForm('ruleForm')" type="primary">立即注册</el-button>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
-            </el-form-item>
-        </el-form>
-    </div>
+  <div class="register">
+    <el-form :model="ruleForm" :rules="rules" label-width="100px" ref="ruleForm">
+      <el-form-item label="用户名" prop="username">
+        <el-input v-model="ruleForm.username"></el-input>
+      </el-form-item>
+      <el-form-item label="密码" prop="password">
+        <el-input autocomplete="off" type="password" v-model="ruleForm.password"></el-input>
+      </el-form-item>
+      <el-form-item label="确认密码" prop="passwordConfirm">
+        <el-input autocomplete="off" type="password" v-model="ruleForm.passwordConfirm"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="submitForm('ruleForm')" type="primary">立即注册</el-button>
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
+      </el-form-item>
+    </el-form>
+  </div>
 
 </template>
 <script>
-import axios from "axios";
+import axios from 'axios'
 
 export default {
-  name: "register",
-  data() {
+  name: 'register',
+  data () {
     const validatePass = (rule, value, callback) => {
       if (value !== this.ruleForm.password) {
-        callback(new Error("两次输入密码不一致!"));
+        callback(new Error('两次输入密码不一致!'))
       } else {
-        callback();
+        callback()
       }
-    };
+    }
     return {
       ruleForm: {
-        username: "",
-        password: "",
-        passwordConfirm: "",
+        username: '',
+        password: '',
+        passwordConfirm: '',
       },
       rules: {
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
+          {
+            required: true,
+            message: '请输入用户名',
+            trigger: 'blur'
+          },
           {
             min: 3,
             max: 20,
-            message: "长度在 3 到 20 个字符",
-            trigger: "blur",
+            message: '长度在 3 到 20 个字符',
+            trigger: 'blur',
           },
         ],
         password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
+          {
+            required: true,
+            message: '请输入密码',
+            trigger: 'blur'
+          },
           {
             min: 6,
             max: 20,
-            message: "长度在 6 到 20 个字符",
-            trigger: "blur",
+            message: '长度在 6 到 20 个字符',
+            trigger: 'blur',
           },
         ],
         passwordConfirm: [
-          { required: true, message: "请再次输入密码", trigger: "blur" },
+          {
+            required: true,
+            message: '请再次输入密码',
+            trigger: 'blur'
+          },
           {
             min: 6,
             max: 20,
-            message: "长度在 6 到 20 个字符",
-            trigger: "blur",
+            message: '长度在 6 到 20 个字符',
+            trigger: 'blur',
           },
-          { validator: validatePass, trigger: "blur" },
+          {
+            validator: validatePass,
+            trigger: 'blur'
+          },
         ],
       },
-    };
+    }
   },
   methods: {
-    submitForm(formName) {
+    submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           axios
-            .post("/register", {
+            .post('/register', {
               username: this.ruleForm.username,
               password: this.ruleForm.password,
               passwordConfirm: this.ruleForm.passwordConfirm,
             })
             .then((rep) => {
-              console.log(rep);
+              console.log(rep)
               if (rep.data.status === 200) {
-                this.$message.success("注册成功，转到登陆界面");
+                this.$message.success('注册成功，转到登陆界面')
                 setTimeout(() => {
-                  location.href = "/login";
-                }, 2000);
+                  location.href = '/login'
+                }, 2000)
               } else if (rep.data.status === 40002) {
-                this.$message.error("用户名已被注册");
-			  }
-			  else if (rep.data.status === 40003) {
-                this.$message.error("密码设置失败");
-			  }
-			  else this.$message.error("注册失败");
-            });
+                this.$message.error('用户名已被注册')
+              } else if (rep.data.status === 40003) {
+                this.$message.error('密码设置失败')
+              } else {
+                this.$message.error('注册失败')
+              }
+            })
         } else {
-          console.log("输入错误");
-          return false;
+          console.log('输入错误')
+          return false
         }
-      });
+      })
     },
-    resetForm(formName) {
-      this.$refs[formName].resetFields();
+    resetForm (formName) {
+      this.$refs[formName].resetFields()
     },
   },
-};
+}
 </script>
 
 <style scoped>

@@ -1,3 +1,8 @@
+/*
+ * @Date: 2020-11-21 23:26:09
+ * @LastEditors: QiuJhao
+ * @LastEditTime: 2020-11-29 00:41:26
+ */
 package config
 
 import (
@@ -5,8 +10,9 @@ import (
 	//"comment/cache"
 	"comment/models"
 	"comment/util"
-	"github.com/joho/godotenv"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 var CurrentTime string
@@ -16,7 +22,7 @@ func Init() {
 	// 从本地读取环境变量
 	CurrentTime = "2006-01-02 15:04:05"
 	if err := godotenv.Load(); err != nil {
-		util.Log().Panic("翻译文件加载失败", err)
+		util.Log().Panic("环境变量文件加载失败", err)
 	}
 	gin.SetMode(os.Getenv("GIN_MODE"))
 
