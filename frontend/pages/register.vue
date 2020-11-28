@@ -4,24 +4,24 @@
  * @LastEditTime: 2020-11-28 00:01:22
 -->
 <template>
-    <div class="register">
+    <div id="registercard">
+      <el-card >
         <el-form :model="ruleForm" :rules="rules" label-width="100px" ref="ruleForm">
-            <el-form-item label="用户名" prop="username">
+            <el-form-item label="用户名" prop="username" id="username"  class="formlable">
                 <el-input v-model="ruleForm.username"></el-input>
             </el-form-item>
-            <el-form-item label="密码" prop="password">
+            <el-form-item label="密码" prop="password" id="psw" class="formlable">
                 <el-input autocomplete="off" type="password" v-model="ruleForm.password"></el-input>
             </el-form-item>
-            <el-form-item label="确认密码" prop="passwordConfirm">
+            <el-form-item label="确认密码" prop="passwordConfirm" id="confirm" class="formlable">
                 <el-input autocomplete="off" type="password" v-model="ruleForm.passwordConfirm"></el-input>
             </el-form-item>
-  </el-select>
-            </el-form-item>
             <el-form-item>
-                <el-button @click="submitForm('ruleForm')" type="primary">立即注册</el-button>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <el-button @click="submitForm('ruleForm')" type="primary" >立即注册</el-button>
+                <el-button @click="resetForm('ruleForm')" class="regisbtn">重置</el-button>
             </el-form-item>
         </el-form>
+      </el-card>
     </div>
 
 </template>
@@ -115,8 +115,19 @@ export default {
 </script>
 
 <style scoped>
-.register {
-  margin: 100px auto;
-  width: 80%;
+
+.formlable{
+  margin-top: 10%;
+}
+.regisbtn{
+  margin-top: 2%;
+  margin-left: 10%;
+}
+#registercard{
+  float: left;
+  width: 30%;
+  height: 40%;
+  margin-left: 37%;
+  margin-top: 15%;
 }
 </style>
