@@ -12,6 +12,7 @@
     </div>
     <img class="background-image" src="~/static/WHUDefault.jpg"/>
 
+
     <div id="card-box">
       <el-card class="box-card">
         <div slot="header" class="clearfix">
