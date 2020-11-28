@@ -1,38 +1,57 @@
 /*
  * @Date: 2020-11-13 20:02:33
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-27 23:58:03
+ * @LastEditTime: 2020-11-28 22:25:33
  */
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
+  render: {
+    ssr: false //开ssr渲染不了评论
+  },
   head: {
     title: 'WHUzero_cup2020',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+    meta: [{
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: ''
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicon.ico'
+    }]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
-	'assets/main.css',
-	'ant-design-vue/dist/antd.css',
-	'video.js/dist/video-js.css',
-    { src: "swiper/css/swiper.css" },
-    { src: "~/plugins/swiper.js", ssr: false },
+    'assets/main.css',
+    'ant-design-vue/dist/antd.css',
+    'video.js/dist/video-js.css',
+    {
+      src: "swiper/css/swiper.css"
+    },
+    {
+      src: "~/plugins/swiper.js",
+      ssr: false
+    },
     'element-ui/lib/theme-chalk/index.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-	'@/plugins/antd-ui',
-	'@/plugins/video',
-  '@/plugins/element-ui',
-  '@/plugins/axios'
+    '@/plugins/antd-ui',
+    '@/plugins/video',
+    '@/plugins/element-ui',
+    '@/plugins/axios',
+    '@/plugins/persistedstate',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -54,9 +73,9 @@ export default {
   axios: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-    build: {
-        transpile: [
-          /^element-ui/,
-        ],
-}
+  build: {
+    transpile: [
+      /^element-ui/,
+    ],
+  }
 }
