@@ -4,8 +4,9 @@
  * @LastEditTime: 2020-11-28 00:01:22
 -->
 <template>
-    <div id="registercard">
-      <el-card >
+    <div>
+      <img src="../static/lingbomen.jpg" class="backimg">
+      <el-card class="registercard">
         <el-form :model="ruleForm" :rules="rules" label-width="100px" ref="ruleForm">
             <el-form-item label="用户名" prop="username" id="username"  class="formlable">
                 <el-input v-model="ruleForm.username"></el-input>
@@ -123,11 +124,20 @@ export default {
   margin-top: 2%;
   margin-left: 10%;
 }
-#registercard{
+.registercard{
   float: left;
   width: 30%;
   height: 40%;
   margin-left: 37%;
-  margin-top: 15%;
+  margin-top: -50%;
+}
+.backimg{
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+.regispage{
+  background-image: url(../static/lingbomen.jpg);
+  background-repeat: no-repeat;
 }
 </style>
