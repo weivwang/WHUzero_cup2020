@@ -7,12 +7,14 @@
     <div v-swiper:mySwiper="swiperOption" class="swiperWrap">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-
-<!--          <img class="background-image" src="~/static/WHUDefault.jpg"/>-->
-          <home></home>
+          <home title="行政楼" background-image-file-name="WHUDefault.jpg"></home>
         </div>
         <div class="swiper-slide">
-          <slide></slide>
+          <slide background-image-file-name="WHUDefault.jpg">
+            <template slot="item">
+              <item from-x="30" from-y="4.5" to-x="8" to-y="10" item-id="administration" image-file-name="WHUAdministrationBuilding.png" ani-time="0.3"></item>
+            </template>
+          </slide>
         </div>
       </div>
 <!--      <div class="swiper-pagination swiper-pagination-bullets"></div>-->
@@ -32,12 +34,14 @@
 // import 'swiper/swiper-bundle.css';
 import slide from '../components/IntroductionSlide'
 import home from '../components/IntroductionHome'
+import item from '../components/IntroductionItem'
 
 export default {
   name: 'Introduction',
   components: {
     slide,
-    home
+    home,
+    item
   },
   data: function(){
     return {
@@ -67,29 +71,6 @@ export default {
         }
       }
     }
-  },
-  mounted() {
-    // new Swiper('#swiper-container', {
-    //   direction: 'vertical',
-    //   autoHeight: true,
-    //   pagination: {
-    //     el: '.swiper-pagination',
-    //   },
-    //
-    //   navigation: {
-    //     nextEl: '.swiper-button-next',
-    //     prevEl: '.swiper-button-prev',
-    //   },
-    //
-    //   scrollbar: {
-    //     el: '.swiper-scrollbar',
-    //     hide: true
-    //   },
-    //
-    //   mousewheel: {
-    //     invert: false,
-    //   },
-    // })
   }
 }
 </script>
@@ -102,32 +83,6 @@ export default {
 .swiperWrap{
   height: 100%;
 }
-/*.swiper-container {*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*}*/
-/*.swiper-slide {*/
-/*  text-align: center;*/
-/*  font-size: 18px;*/
-/*  background: #fff;*/
-
-/*  !* Center slide text vertically *!*/
-/*  display: -webkit-box;*/
-/*  display: -ms-flexbox;*/
-/*  display: -webkit-flex;*/
-/*  display: flex;*/
-/*  -webkit-box-pack: center;*/
-/*  -ms-flex-pack: center;*/
-/*  -webkit-justify-content: center;*/
-/*  justify-content: center;*/
-/*  -webkit-box-align: center;*/
-/*  -ms-flex-align: center;*/
-/*  -webkit-align-items: center;*/
-/*  align-items: center;*/
-/*}*/
-
-
-
 
 
 </style>

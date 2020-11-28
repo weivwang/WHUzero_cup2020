@@ -1,11 +1,10 @@
 <template>
   <div class="component-root">
-    <img class="background-image" src="~/static/WHUDefault.jpg"/>
+    <img class="background-image" :src="require('../static/' + backgroundImageFileName)"/>
     <div class="home-modal"></div>
-    <span class="home-title">行政楼</span>
-
+    <span class="home-title">{{ title }}</span>
     <div class="scroll-down">
-      <span class="scroll-text">向下滑动</span>
+      <span class="scroll-text">{{isInternational ? 'SCROLL' : '向下滑动'}}</span>
       <div class="scroll-here">
         <i class="el-icon-arrow-down" style="color: white; font-size: 25px" aria-hidden="true"></i>
       </div>
@@ -15,6 +14,7 @@
 
 <script>
 export default {
+  props: ['title', 'backgroundImageFileName', 'isInternational'],
   name: "IntroductionHome"
 }
 </script>
