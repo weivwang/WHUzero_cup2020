@@ -52,7 +52,7 @@ func (service *RegisterService) Valid() *serializers.Response {
 		}
 	}
 
-	count := 0
+	var count int64
 	models.DB.Model(&models.User{}).Where("user_name = ?", service.UserName).Count(&count)
 	if count > 0 {
 		return &serializers.Response{
