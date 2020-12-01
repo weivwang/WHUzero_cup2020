@@ -11,6 +11,12 @@ type CommentListService struct {
 }
 
 func (service *CommentListService) List(articleID uint, p string) *serializers.Response {
+	if articleID == 0 {
+		return &serializers.Response{
+			Status:  e.INPUT_EMPTY,
+			Message: e.GetMsg(e.INPUT_EMPTY),
+		}
+	}
 	page, _ := strconv.Atoi(p)
 	start := models.CommentEveryPageCount * (page - 1)
 

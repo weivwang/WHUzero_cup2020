@@ -28,6 +28,7 @@ func NewRouter() *gin.Engine {
 			authed.POST("star/create", api.CreateStar)
 			authed.POST("star/delete", api.DeleteStar)
 			authed.GET("star/list", api.StarList)
+			authed.GET("stared/:article_id", api.Stared)
 		}
 	}
 
