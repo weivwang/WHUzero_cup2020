@@ -22,7 +22,7 @@ func (service *DeleteStarService) Delete(user *models.User) *serializers.Respons
 		ArticleID: service.ArticleID,
 	}
 	var stars []models.Star
-	total := 0
+	var total int64
 	if err := models.DB.Model(stars).
 		Where("article_id=? and user_id=?", service.ArticleID, user.ID).
 		Count(&total).Error; err != nil {

@@ -18,7 +18,7 @@ func (service *StaredService) Stared(user *models.User, ArticleID uint) *seriali
 		}
 	}
 	var stars []models.Star
-	total := 0
+	var total int64
 	if err := models.DB.Model(stars).
 		Where("article_id=? and user_id=?", ArticleID, user.ID).
 		Count(&total).Error; err != nil {
