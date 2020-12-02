@@ -10,7 +10,14 @@
         <div class="swiper-slide">
           <home title="行政楼" background-image-file-name="WHUDefault.jpg"></home>
         </div>
-        <div class="swiper-slide"></div>
+        <div class="swiper-slide">
+          <detail
+            card-title="行政楼"
+            :card-content="administrationIntroduction"
+            :card-images-file-name="['WHUDefault.jpg']"
+            card-swiper-change-time="2000"
+            background-image-file-name="WHUDefault.jpg"></detail>
+        </div>
         <div class="swiper-slide">
           <slide background-image-file-name="WHUDefault.jpg">
             <template slot="items">
@@ -43,7 +50,7 @@
       <!--      <div class="swiper-button-prev"></div>-->
       <!--      <div class="swiper-button-next"></div>-->
 
-            <div class="swiper-scrollbar"></div>
+            <div class="introduction-swiper-scrollbar swiper-scrollbar"></div>
     </div>
 
   </div>
@@ -56,6 +63,7 @@ import slide from '../components/IntroductionSlide'
 import home from '../components/IntroductionHome'
 import item from '../components/IntroductionItem'
 import comment from '../components/Comment'
+import detail from '../components/IntroductionDetail'
 
 export default {
   name: 'Introduction',
@@ -63,7 +71,8 @@ export default {
     slide,
     home,
     item,
-    comment
+    comment,
+    detail
   },
   data: function(){
     return {
@@ -75,22 +84,25 @@ export default {
         mousewheel: true,
         direction: 'vertical',
         pagination: {
-          el: '.swiper-pagination',
+          el: '.introduction-swiper-pagination',
           dynamicBullets: true
         },
 
         scrollbar: {
-          el: '.swiper-scrollbar',
+          el: '.introduction-swiper-scrollbar',
           hide: true
         },
 
+        nextEl: '.introduction-swiper-button-next',
+        prevEl: '.introduction-swiper-button-prev',
+
         on: {
-          slideChange() {
-            console.log('onSlideChangeEnd', this);
-          },
-          tap() {
-            console.log('onTap', this);
-          }
+          // slideChange() {
+          //   console.log('onSlideChangeEnd', this);
+          // },
+          // tap() {
+          //   console.log('onTap', this);
+          // }
         }
       }
     }
