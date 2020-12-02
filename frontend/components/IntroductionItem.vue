@@ -1,29 +1,36 @@
 <template>
   <div class="introduction-item-root">
     <div class="float-image-div">
-      <img :src="require('~/static/' + imageFileName)" :id="'item-image-' + this.itemId" ref="administrationBuildingImage"
-           @click="onItemClick"
-           @mouseenter="administrationBuildingImage.isShowShadow = true"
-           @mouseleave="onItemMouseLeave"
-           :style="{
-             'opacity': administrationBuildingImage.isShowShadow ? '1' : '0',
-         'cursor' : administrationBuildingImage.isShowShadow ? 'pointer' : ''
-           }"/>
+      <img
+        :src="require('~/static/' + imageFileName)"
+        :id="'item-image-' + this.itemId"
+        ref="administrationBuildingImage"
+        @click="onItemClick"
+        @mouseenter="administrationBuildingImage.isShowShadow = true"
+        @mouseleave="onItemMouseLeave"
+        :style="{
+          opacity: administrationBuildingImage.isShowShadow ? '1' : '0',
+          cursor: administrationBuildingImage.isShowShadow ? 'pointer' : '',
+        }"
+      />
     </div>
 
     <div :id="'card-box-' + this.itemId">
       <el-card class="box-card">
         <div slot="header" class="clearfix">
-          <span style="font-size: 2rem">{{cardTitle}}</span>
+          <span style="font-size: 2rem">{{ cardTitle }}</span>
         </div>
 
         <el-row>
           <el-col :span="16">
-            <p>{{cardContent}}</p>
+            <p>{{ cardContent }}</p>
           </el-col>
 
           <el-col :span="6" offset="2">
-            <el-image :src="require('~/static/' + cardImageFileName)" class="card-image"></el-image>
+            <el-image
+              :src="require('~/static/' + cardImageFileName)"
+              class="card-image"
+            ></el-image>
           </el-col>
         </el-row>
         <el-divider></el-divider>
@@ -47,18 +54,17 @@
           <!--            </div>-->
           <!--          </div>-->
           <div class="new-review-box-input-and-button">
-            <el-input style="width: 75%; margin-right: 2%" placeholder="评论"></el-input>
+            <el-input
+              style="width: 75%; margin-right: 2%"
+              placeholder="评论"
+            ></el-input>
             <el-button type="primary" style="width: 22%">发送</el-button>
           </div>
-
         </div>
       </el-card>
-
-
     </div>
 
     <div :id="'modal-' + itemId"></div>
-
   </div>
 </template>
 
@@ -67,7 +73,20 @@ import $ from "jquery";
 
 export default {
   name: "IntroductionItem",
-  props: ['fromX', 'fromY', 'toX', 'toY', 'itemId', 'imageFileName', 'aniTime', 'cardTitle', 'cardContent', 'cardImageFileName', 'width', 'height'],
+  props: [
+    "fromX",
+    "fromY",
+    "toX",
+    "toY",
+    "itemId",
+    "imageFileName",
+    "aniTime",
+    "cardTitle",
+    "cardContent",
+    "cardImageFileName",
+    "width",
+    "height",
+  ],
   data() {
     return {
       administrationBuildingImage: {
@@ -81,14 +100,13 @@ export default {
          */
         isShowShadow: false,
 
-        clearInterval: null
+        clearInterval: null,
       },
-
-    }
+    };
   },
   mounted() {
-    let style = document.createElement('style');
-    style.setAttribute('type', 'text/css');
+    let style = document.createElement("style");
+    style.setAttribute("type", "text/css");
     document.head.appendChild(style);
     let sheet = style.sheet;
 
@@ -102,7 +120,9 @@ export default {
     margin-top: ${this.toY}%;
     margin-left: ${this.toX}%;
   }
-}`,0);
+}`,
+      0
+    );
 
     sheet.insertRule(
       `
@@ -115,7 +135,9 @@ export default {
         margin-top: ${this.fromY}%;
         margin-left: ${this.fromX}%;
   }
-}`,0);
+}`,
+      0
+    );
 
     sheet.insertRule(
       `@keyframes animation-state-A-card-${this.itemId} {
@@ -127,7 +149,9 @@ export default {
     opacity: 1;
     margin-right: 10%;
   }
-}`,0);
+}`,
+      0
+    );
 
     sheet.insertRule(
       `@keyframes animation-state-B-card-${this.itemId} {
@@ -139,7 +163,9 @@ export default {
     opacity: 0;
     margin-right: -50%;
   }
-}`,0);
+}`,
+      0
+    );
 
     sheet.insertRule(
       `@keyframes animation-state-A-modal-${this.itemId} {
@@ -149,7 +175,9 @@ export default {
   to{
     opacity: 0.5;
   }
-}`,0);
+}`,
+      0
+    );
 
     sheet.insertRule(
       `@keyframes animation-state-B-modal-${this.itemId} {
@@ -159,33 +187,46 @@ export default {
   to{
     opacity: 0;
   }
-}`,0);
-
+}`,
+      0
+    );
 
     sheet.insertRule(
       `.animation-item-state-A-${this.itemId} {
   animation: animation-state-A-item-${this.itemId} ${this.aniTime}s forwards;
-}`,0);
+}`,
+      0
+    );
     sheet.insertRule(
       `.animation-item-state-B-${this.itemId} {
   animation: animation-state-B-item-${this.itemId} ${this.aniTime}s forwards;
-}`,0);
+}`,
+      0
+    );
     sheet.insertRule(
       `.animation-card-state-A-${this.itemId} {
   animation: animation-state-A-card-${this.itemId} ${this.aniTime}s forwards;
-}`,0);
+}`,
+      0
+    );
     sheet.insertRule(
       `.animation-card-state-B-${this.itemId} {
   animation: animation-state-B-card-${this.itemId} ${this.aniTime}s forwards;
-}`,0);
+}`,
+      0
+    );
     sheet.insertRule(
       `.animation-modal-state-A-${this.itemId} {
   animation: animation-state-A-modal-${this.itemId} ${this.aniTime}s forwards;
-}`,0);
+}`,
+      0
+    );
     sheet.insertRule(
       `.animation-modal-state-B-${this.itemId} {
   animation: animation-state-B-modal-${this.itemId} ${this.aniTime}s forwards;
-}`,0);
+}`,
+      0
+    );
 
     sheet.insertRule(
       `#modal-${this.itemId}{
@@ -194,7 +235,9 @@ export default {
   background: black;
   opacity: 0;
 
-      }`, 0)
+      }`,
+      0
+    );
 
     sheet.insertRule(
       `#card-box-${this.itemId}{
@@ -220,8 +263,9 @@ export default {
   align-items:center;
   justify-content:center;
 
-      }`, 0);
-
+      }`,
+      0
+    );
 
     sheet.insertRule(
       `#item-image-${this.itemId}{
@@ -230,53 +274,56 @@ export default {
   margin-left: ${this.fromX}%;
   margin-top: ${this.fromY}%;
   object-fit: fill;
-      }`, 0)
-
+      }`,
+      0
+    );
   },
   methods: {
-    onItemMouseLeave: function(){
-      console.log(this.administrationBuildingImage.isShow)
+    onItemMouseLeave: function () {
+      console.log(this.administrationBuildingImage.isShow);
 
-      if(this.administrationBuildingImage.isShow){
+      if (this.administrationBuildingImage.isShow) {
         return;
       }
 
       this.administrationBuildingImage.isShowShadow = false;
     },
 
-    onItemClick: function (){
-
+    onItemClick: function () {
       let item = this.$refs.administrationBuildingImage;
 
-
-      if(this.administrationBuildingImage.isShow){
-        $('#item-image-' + this.itemId).removeClass('animation-item-state-A-' + this.itemId).addClass('animation-item-state-B-' + this.itemId);
-        $('#card-box-' + this.itemId).removeClass('animation-card-state-A-' + this.itemId).addClass('animation-card-state-B-' + this.itemId);
-        $('#modal-' + this.itemId).removeClass('animation-modal-state-A-' + this.itemId).addClass('animation-modal-state-B-' + this.itemId);
+      if (this.administrationBuildingImage.isShow) {
+        $("#item-image-" + this.itemId)
+          .removeClass("animation-item-state-A-" + this.itemId)
+          .addClass("animation-item-state-B-" + this.itemId);
+        $("#card-box-" + this.itemId)
+          .removeClass("animation-card-state-A-" + this.itemId)
+          .addClass("animation-card-state-B-" + this.itemId);
+        $("#modal-" + this.itemId)
+          .removeClass("animation-modal-state-A-" + this.itemId)
+          .addClass("animation-modal-state-B-" + this.itemId);
 
         clearInterval(this.administrationBuildingImage.clearInterval);
         this.administrationBuildingImage.clearInterval = setInterval(() => {
           this.administrationBuildingImage.isShow = false;
         }, 800);
-
-
-
-      }
-      else{
-        $('#item-image-' + this.itemId).removeClass('animation-item-state-B-' + this.itemId).addClass('animation-item-state-A-' + this.itemId);
-        $('#card-box-' + this.itemId).removeClass('animation-card-state-B-' + this.itemId).addClass('animation-card-state-A-' + this.itemId);
-        $('#modal-' + this.itemId).removeClass('animation-modal-state-B-' + this.itemId).addClass('animation-modal-state-A-' + this.itemId);
+      } else {
+        $("#item-image-" + this.itemId)
+          .removeClass("animation-item-state-B-" + this.itemId)
+          .addClass("animation-item-state-A-" + this.itemId);
+        $("#card-box-" + this.itemId)
+          .removeClass("animation-card-state-B-" + this.itemId)
+          .addClass("animation-card-state-A-" + this.itemId);
+        $("#modal-" + this.itemId)
+          .removeClass("animation-modal-state-B-" + this.itemId)
+          .addClass("animation-modal-state-A-" + this.itemId);
 
         clearInterval(this.administrationBuildingImage.clearInterval);
         this.administrationBuildingImage.isShow = true;
-
       }
-
-
     },
   },
-
-}
+};
 </script>
 
 <style scoped>
@@ -287,21 +334,19 @@ export default {
   z-index: 9999;
 }
 
-
 .box-card {
   display: table-cell;
   vertical-align: center;
 }
 
-.float-image-div{
+.float-image-div {
   position: absolute;
   z-index: 999;
   width: 100%;
   height: 100%;
 }
 
-.card-image{
-
+.card-image {
 }
 
 .review-box {
@@ -309,7 +354,6 @@ export default {
   flex-wrap: wrap;
 
   margin-bottom: 15px;
-
 }
 
 .review-bubble {
@@ -317,13 +361,11 @@ export default {
 
   margin-bottom: 10px;
   margin-right: 10px;
-
 }
 
 .review-bubble-content {
   padding-top: 10px;
   padding-bottom: 10px;
-
 }
 
 .new-review-box {
@@ -332,7 +374,6 @@ export default {
 
 .new-review-box-input-and-button {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
-
 </style>
