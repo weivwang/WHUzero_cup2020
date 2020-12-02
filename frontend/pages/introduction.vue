@@ -21,20 +21,20 @@
         <div class="swiper-slide">
           <slide background-image-file-name="WHUDefault.jpg">
             <template slot="items">
-              <item from-x="30"
-                    from-y="4.5"
-                    to-x="8"
-                    to-y="10"
-                    width="38"
-                    height="49"
+              <item :from-x="30"
+                    :from-y="4.5"
+                    :to-x="8"
+                    :to-y="10"
+                    :width="38"
+                    :height="49"
                     item-id="administration"
                     image-file-name="WHUAdministrationBuilding.png"
-                    ani-time="0.3"
+                    :ani-time="0.3"
                     card-title="行政楼"
                     :card-content="administrationIntroduction"
                     :tags="['武汉大学', '珞珈山职业学院']"
                     card-image-file-name="WHUDefault.jpg"
-                    end-scale="1.0"
+                    :end-scale="1.0"
               >
               </item>
             </template>
@@ -74,7 +74,7 @@ export default {
     home,
     item,
     detail,
-    comment
+    comment,
   },
   data: function(){
     return {

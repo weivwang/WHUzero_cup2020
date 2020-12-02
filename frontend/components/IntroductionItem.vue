@@ -1,13 +1,14 @@
 <template>
   <div class="introduction-item-root">
     <div class="float-image-div">
-      <img :src="require('~/static/' + imageFileName)" :id="'item-image-' + this.itemId" ref="administrationBuildingImage"
+      <img :src="require('~/static/' + imageFileName)"
+           :id="'item-image-' + this.itemId"
            @click="onItemClick"
-           @mouseenter="administrationBuildingImage.isShowShadow = true"
+           @mouseenter="item.isShowShadow = true"
            @mouseleave="onItemMouseLeave"
            :style="{
-             'opacity': administrationBuildingImage.isShowShadow ? '1' : '0',
-         'cursor' : administrationBuildingImage.isShowShadow ? 'pointer' : ''
+             'opacity': item.isShowShadow ? '1' : '0',
+         'cursor' : item.isShowShadow ? 'pointer' : ''
            }"/>
     </div>
 
@@ -78,10 +79,25 @@ export default {
    * @tags 标签数组
    * @end-scale 结束动画后的缩放比例
    */
-    ['fromX', 'fromY', 'toX', 'toY', 'itemId', 'imageFileName', 'aniTime', 'cardTitle', 'cardContent', 'cardImageFileName', 'width', 'height', 'tags', 'endScale'],
+    {
+      'fromX': Number,
+      'fromY': Number,
+      'toX': Number,
+      'toY': Number,
+      'itemId': String,
+      'imageFileName': String,
+      'aniTime': Number,
+      'cardTitle': String,
+      'cardContent': String,
+      'cardImageFileName': String,
+      'width': Number,
+      'height': Number,
+      'tags': Array,
+      'endScale': Number
+    },
   data() {
     return {
-      administrationBuildingImage: {
+      item: {
         /**
          * 是否显示详情
          */
@@ -262,11 +278,11 @@ export default {
      * 鼠标在图片上移走的响应方法
      */
     onItemMouseLeave: function(){
-      if(this.administrationBuildingImage.isShow){
+      if(this.item.isShow){
         return;
       }
 
-      this.administrationBuildingImage.isShowShadow = false;
+      this.item.isShowShadow = false;
     },
 
     /**
@@ -274,19 +290,18 @@ export default {
      */
     onItemClick: function (){
 
-      let item = this.$refs.administrationBuildingImage;
 
 
-      if(this.administrationBuildingImage.isShow){
+      if(this.item.isShow){
         //开始展示动画
         $('#item-image-' + this.itemId).removeClass('animation-item-state-A-' + this.itemId).addClass('animation-item-state-B-' + this.itemId);
         $('#card-box-' + this.itemId).removeClass('animation-card-state-A-' + this.itemId).addClass('animation-card-state-B-' + this.itemId);
         $('#modal-' + this.itemId).removeClass('animation-modal-state-A-' + this.itemId).addClass('animation-modal-state-B-' + this.itemId);
 
         //设置计数器，防止动画进行一半后突然消失
-        clearInterval(this.administrationBuildingImage.clearInterval);
-        this.administrationBuildingImage.clearInterval = setInterval(() => {
-          this.administrationBuildingImage.isShow = false;
+        clearInterval(this.item.clearInterval);
+        this.item.clearInterval = setInterval(() => {
+          this.item.isShow = false;
         }, 800);
 
 
@@ -298,8 +313,8 @@ export default {
         $('#card-box-' + this.itemId).removeClass('animation-card-state-B-' + this.itemId).addClass('animation-card-state-A-' + this.itemId);
         $('#modal-' + this.itemId).removeClass('animation-modal-state-B-' + this.itemId).addClass('animation-modal-state-A-' + this.itemId);
 
-        clearInterval(this.administrationBuildingImage.clearInterval);
-        this.administrationBuildingImage.isShow = true;
+        clearInterval(this.item.clearInterval);
+        this.item.isShow = true;
 
       }
 
