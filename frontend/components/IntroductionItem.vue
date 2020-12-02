@@ -28,30 +28,24 @@
         </el-row>
         <el-divider></el-divider>
         <div class="review-box">
-          <div class="el-card review-bubble is-always-shadow">
+          <div class="el-card review-bubble is-always-shadow" v-for="tag in tags">
             <div class="el-card__body review-bubble-content">
-              <span>好好好</span>
-            </div>
-          </div>
-
-          <div class="el-card review-bubble is-always-shadow">
-            <div class="el-card__body review-bubble-content">
-              <span>好好好</span>
+              <span>{{ tag }}</span>
             </div>
           </div>
         </div>
 
-        <div class="new-review-box">
-          <!--          <div class="el-card review-bubble is-always-shadow">-->
-          <!--            <div class="el-card__body review-bubble-content">-->
-          <!--            </div>-->
-          <!--          </div>-->
-          <div class="new-review-box-input-and-button">
-            <el-input style="width: 75%; margin-right: 2%" placeholder="评论"></el-input>
-            <el-button type="primary" style="width: 22%">发送</el-button>
-          </div>
+        <!--        <div class="new-review-box">-->
+        <!--          &lt;!&ndash;          <div class="el-card review-bubble is-always-shadow">&ndash;&gt;-->
+        <!--          &lt;!&ndash;            <div class="el-card__body review-bubble-content">&ndash;&gt;-->
+        <!--          &lt;!&ndash;            </div>&ndash;&gt;-->
+        <!--          &lt;!&ndash;          </div>&ndash;&gt;-->
+        <!--          <div class="new-review-box-input-and-button">-->
+        <!--            <el-input style="width: 75%; margin-right: 2%" placeholder="评论"></el-input>-->
+        <!--            <el-button type="primary" style="width: 22%">发送</el-button>-->
+        <!--          </div>-->
 
-        </div>
+        <!--        </div>-->
       </el-card>
 
 
@@ -67,7 +61,24 @@ import $ from "jquery";
 
 export default {
   name: "IntroductionItem",
-  props: ['fromX', 'fromY', 'toX', 'toY', 'itemId', 'imageFileName', 'aniTime', 'cardTitle', 'cardContent', 'cardImageFileName', 'width', 'height'],
+  props:
+  /**
+   * @from-X 开始时，图片左上角的点距离左边的百分比
+   * @from-Y 开始时，图片左上角的点距离上边的百分比
+   * @to-X 结束时，图片左上角的点距离左边的百分比
+   * @to-Y 结束时，图片左上角的点距离上边的百分比
+   * @item-id 元素唯一标识符
+   * @image-file-name 抠出来图像的文件名。图片需位于static文件夹或其下级目录下
+   * @ani-time 动画执行时间
+   * @card-title 卡片标题
+   * @card-content 卡片内容
+   * @card-image-file-name 卡片右上角缩略图的图片地址
+   * @width 图片长度百分比
+   * @height 图片宽度百分比
+   * @tags 标签数组
+   * @end-scale 结束动画后的缩放比例
+   */
+    ['fromX', 'fromY', 'toX', 'toY', 'itemId', 'imageFileName', 'aniTime', 'cardTitle', 'cardContent', 'cardImageFileName', 'width', 'height', 'tags', 'endScale'],
   data() {
     return {
       administrationBuildingImage: {
@@ -81,44 +92,59 @@ export default {
          */
         isShowShadow: false,
 
+        /**
+         * 用于优化的计时器
+         */
         clearInterval: null
       },
 
     }
   },
   mounted() {
-    let style = document.createElement('style');
-    style.setAttribute('type', 'text/css');
-    document.head.appendChild(style);
-    let sheet = style.sheet;
+    this.setCss();
+  },
+  methods: {
+      /**
+       * 初始化设置Css
+       */
+    setCss: function (){
+      let style = document.createElement('style');
+      style.setAttribute('type', 'text/css');
+      document.head.appendChild(style);
+      let sheet = style.sheet;
 
-    sheet.insertRule(
-      `@keyframes animation-state-A-item-${this.itemId} {
+      sheet.insertRule(
+        `@keyframes animation-state-A-item-${this.itemId} {
   from{
         margin-top: ${this.fromY}%;
         margin-left: ${this.fromX}%;
+        transform: scale(1);
       }
   to{
     margin-top: ${this.toY}%;
     margin-left: ${this.toX}%;
+    transform: scale(${this.endScale});
   }
 }`,0);
 
-    sheet.insertRule(
-      `
+      sheet.insertRule(
+        `
       @keyframes animation-state-B-item-${this.itemId} {
   from{
     margin-top: ${this.toY}%;
     margin-left: ${this.toX}%;
+    transform: scale(${this.endScale});
   }
   to{
         margin-top: ${this.fromY}%;
         margin-left: ${this.fromX}%;
+        transform: scale(1);
+
   }
 }`,0);
 
-    sheet.insertRule(
-      `@keyframes animation-state-A-card-${this.itemId} {
+      sheet.insertRule(
+        `@keyframes animation-state-A-card-${this.itemId} {
   from{
     opacity: 0;
     margin-right: -50%;
@@ -129,8 +155,8 @@ export default {
   }
 }`,0);
 
-    sheet.insertRule(
-      `@keyframes animation-state-B-card-${this.itemId} {
+      sheet.insertRule(
+        `@keyframes animation-state-B-card-${this.itemId} {
   from{
     opacity: 1;
     margin-right: 10%;
@@ -141,8 +167,8 @@ export default {
   }
 }`,0);
 
-    sheet.insertRule(
-      `@keyframes animation-state-A-modal-${this.itemId} {
+      sheet.insertRule(
+        `@keyframes animation-state-A-modal-${this.itemId} {
   from{
     opacity: 0;
   }
@@ -151,8 +177,8 @@ export default {
   }
 }`,0);
 
-    sheet.insertRule(
-      `@keyframes animation-state-B-modal-${this.itemId} {
+      sheet.insertRule(
+        `@keyframes animation-state-B-modal-${this.itemId} {
   from{
     opacity: 0.5;
   }
@@ -162,33 +188,33 @@ export default {
 }`,0);
 
 
-    sheet.insertRule(
-      `.animation-item-state-A-${this.itemId} {
+      sheet.insertRule(
+        `.animation-item-state-A-${this.itemId} {
   animation: animation-state-A-item-${this.itemId} ${this.aniTime}s forwards;
 }`,0);
-    sheet.insertRule(
-      `.animation-item-state-B-${this.itemId} {
+      sheet.insertRule(
+        `.animation-item-state-B-${this.itemId} {
   animation: animation-state-B-item-${this.itemId} ${this.aniTime}s forwards;
 }`,0);
-    sheet.insertRule(
-      `.animation-card-state-A-${this.itemId} {
+      sheet.insertRule(
+        `.animation-card-state-A-${this.itemId} {
   animation: animation-state-A-card-${this.itemId} ${this.aniTime}s forwards;
 }`,0);
-    sheet.insertRule(
-      `.animation-card-state-B-${this.itemId} {
+      sheet.insertRule(
+        `.animation-card-state-B-${this.itemId} {
   animation: animation-state-B-card-${this.itemId} ${this.aniTime}s forwards;
 }`,0);
-    sheet.insertRule(
-      `.animation-modal-state-A-${this.itemId} {
+      sheet.insertRule(
+        `.animation-modal-state-A-${this.itemId} {
   animation: animation-state-A-modal-${this.itemId} ${this.aniTime}s forwards;
 }`,0);
-    sheet.insertRule(
-      `.animation-modal-state-B-${this.itemId} {
+      sheet.insertRule(
+        `.animation-modal-state-B-${this.itemId} {
   animation: animation-state-B-modal-${this.itemId} ${this.aniTime}s forwards;
 }`,0);
 
-    sheet.insertRule(
-      `#modal-${this.itemId}{
+      sheet.insertRule(
+        `#modal-${this.itemId}{
   height: 100%;
   width: 100%;
   background: black;
@@ -196,8 +222,8 @@ export default {
 
       }`, 0)
 
-    sheet.insertRule(
-      `#card-box-${this.itemId}{
+      sheet.insertRule(
+        `#card-box-${this.itemId}{
   position: relative;
   float: right;
 
@@ -222,18 +248,19 @@ export default {
 
       }`, 0);
 
-
-    sheet.insertRule(
-      `#item-image-${this.itemId}{
+      sheet.insertRule(
+        `#item-image-${this.itemId}{
   width: ${this.width}%;
   height: ${this.height}%;
   margin-left: ${this.fromX}%;
   margin-top: ${this.fromY}%;
   object-fit: fill;
       }`, 0)
+    },
 
-  },
-  methods: {
+    /**
+     * 鼠标在图片上移走的响应方法
+     */
     onItemMouseLeave: function(){
       console.log(this.administrationBuildingImage.isShow)
 
@@ -244,16 +271,21 @@ export default {
       this.administrationBuildingImage.isShowShadow = false;
     },
 
+    /**
+     * 图片被单击的响应方法
+     */
     onItemClick: function (){
 
       let item = this.$refs.administrationBuildingImage;
 
 
       if(this.administrationBuildingImage.isShow){
+        //开始展示动画
         $('#item-image-' + this.itemId).removeClass('animation-item-state-A-' + this.itemId).addClass('animation-item-state-B-' + this.itemId);
         $('#card-box-' + this.itemId).removeClass('animation-card-state-A-' + this.itemId).addClass('animation-card-state-B-' + this.itemId);
         $('#modal-' + this.itemId).removeClass('animation-modal-state-A-' + this.itemId).addClass('animation-modal-state-B-' + this.itemId);
 
+        //设置计数器，防止动画进行一半后突然消失
         clearInterval(this.administrationBuildingImage.clearInterval);
         this.administrationBuildingImage.clearInterval = setInterval(() => {
           this.administrationBuildingImage.isShow = false;
@@ -263,6 +295,7 @@ export default {
 
       }
       else{
+        //开始展示动画
         $('#item-image-' + this.itemId).removeClass('animation-item-state-B-' + this.itemId).addClass('animation-item-state-A-' + this.itemId);
         $('#card-box-' + this.itemId).removeClass('animation-card-state-B-' + this.itemId).addClass('animation-card-state-A-' + this.itemId);
         $('#modal-' + this.itemId).removeClass('animation-modal-state-B-' + this.itemId).addClass('animation-modal-state-A-' + this.itemId);

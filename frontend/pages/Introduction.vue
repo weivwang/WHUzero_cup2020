@@ -10,6 +10,7 @@
         <div class="swiper-slide">
           <home title="行政楼" background-image-file-name="WHUDefault.jpg"></home>
         </div>
+        <div class="swiper-slide"></div>
         <div class="swiper-slide">
           <slide background-image-file-name="WHUDefault.jpg">
             <template slot="items">
@@ -24,10 +25,16 @@
                     ani-time="0.3"
                     card-title="行政楼"
                     :card-content="administrationIntroduction"
-                    card-image-file-name="WHUDefault.jpg">
+                    :tags="['武汉大学', '珞珈山职业学院']"
+                    card-image-file-name="WHUDefault.jpg"
+                    end-scale="1.0"
+              >
               </item>
             </template>
           </slide>
+        </div>
+        <div class="swiper-slide">
+          <comment article_id="99"></comment>
         </div>
       </div>
 <!--      <div class="swiper-pagination swiper-pagination-bullets"></div>-->
@@ -48,13 +55,15 @@
 import slide from '../components/IntroductionSlide'
 import home from '../components/IntroductionHome'
 import item from '../components/IntroductionItem'
+import comment from '../components/Comment'
 
 export default {
   name: 'Introduction',
   components: {
     slide,
     home,
-    item
+    item,
+    comment
   },
   data: function(){
     return {
