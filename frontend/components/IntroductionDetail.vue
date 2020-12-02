@@ -60,10 +60,10 @@ export default {
         },
         bullets: 'detail-swiper-pagination-bullets',
 
-        scrollbar: {
-          el: '.detail-swiper-scrollbar',
-          hide: true
-        },
+        // scrollbar: {
+        //   el: '.detail-swiper-scrollbar',
+        //   hide: true
+        // },
 
         navigation: {
           nextEl: '.detail-swiper-button-next',
@@ -116,7 +116,7 @@ export default {
 
 .background-image {
   width: 100%;
-  height: 100%;
+  height: 105%;
   object-fit: fill;
 }
 

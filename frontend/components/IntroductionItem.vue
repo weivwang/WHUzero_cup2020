@@ -22,7 +22,7 @@
             <p>{{cardContent}}</p>
           </el-col>
 
-          <el-col :span="6" offset="2">
+          <el-col :span="6" :offset="2">
             <el-image :src="require('~/static/' + cardImageFileName)" class="card-image"></el-image>
           </el-col>
         </el-row>
@@ -262,8 +262,6 @@ export default {
      * 鼠标在图片上移走的响应方法
      */
     onItemMouseLeave: function(){
-      console.log(this.administrationBuildingImage.isShow)
-
       if(this.administrationBuildingImage.isShow){
         return;
       }
@@ -359,13 +357,13 @@ export default {
 
 }
 
-.new-review-box {
-  width: 100%;
-}
+/*.new-review-box {*/
+/*  width: 100%;*/
+/*}*/
 
-.new-review-box-input-and-button {
-  display: flex;
-  flex-wrap: wrap
-}
+/*.new-review-box-input-and-button {*/
+/*  display: flex;*/
+/*  flex-wrap: wrap*/
+/*}*/
 
 </style>

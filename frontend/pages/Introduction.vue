@@ -41,7 +41,7 @@
           </slide>
         </div>
         <div class="swiper-slide">
-          <comment article_id="99"></comment>
+          <comment ref="comment" article-id="99" background-image-file-name="WHUDefault.jpg"></comment>
         </div>
       </div>
 <!--      <div class="swiper-pagination swiper-pagination-bullets"></div>-->
@@ -62,8 +62,10 @@
 import slide from '../components/IntroductionSlide'
 import home from '../components/IntroductionHome'
 import item from '../components/IntroductionItem'
-import comment from '../components/Comment'
 import detail from '../components/IntroductionDetail'
+import comment from '../components/IntroductionComment'
+
+let _this;
 
 export default {
   name: 'Introduction',
@@ -71,8 +73,8 @@ export default {
     slide,
     home,
     item,
-    comment,
-    detail
+    detail,
+    comment
   },
   data: function(){
     return {
@@ -83,29 +85,39 @@ export default {
         spaceBetween: 30,
         mousewheel: true,
         direction: 'vertical',
-        pagination: {
-          el: '.introduction-swiper-pagination',
-          dynamicBullets: true
-        },
+        // pagination: {
+        //   el: '.introduction-swiper-pagination',
+        //   dynamicBullets: true
+        // },
 
         scrollbar: {
           el: '.introduction-swiper-scrollbar',
           hide: true
         },
 
-        nextEl: '.introduction-swiper-button-next',
-        prevEl: '.introduction-swiper-button-prev',
+        // nextEl: '.introduction-swiper-button-next',
+        // prevEl: '.introduction-swiper-button-prev',
 
         on: {
-          // slideChange() {
-          //   console.log('onSlideChangeEnd', this);
-          // },
+          slideChange() {
+            if(this.activeIndex === 3){
+              _this.notifyCommentNotAuthorized();
+            }
+          },
           // tap() {
           //   console.log('onTap', this);
           // }
         }
       }
     }
+  },
+  methods: {
+    notifyCommentNotAuthorized: function () {
+      _this.$refs.comment.notifyNotAuthorized();
+    }
+  },
+  mounted() {
+    _this = this;
   }
 }
 </script>

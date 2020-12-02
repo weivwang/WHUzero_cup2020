@@ -82,7 +82,7 @@ export default {
 <style scoped>
 .background-image {
   width: 100%;
-  height: 100%;
+  height: 105%;
   object-fit: fill;
 }
 
