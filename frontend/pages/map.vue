@@ -43,30 +43,7 @@ export default {
 };
 </script>
 <style scoped>
-#scroll {
-  position: absolute;
-  float: left;
-  margin-left: 37%;
-  margin-top: 20%;
-}
 
-#left {
-  float: left;
-  width: 32px;
-  height: 190px;
-  background: url("../static/scroll.png");
-  z-index: 80;
-  position: absolute;
-}
-#right {
-  float: left;
-  width: 32px;
-  height: 190px;
-  background: url("../static/scroll.png") 100% 50%;
-  z-index: 80;
-  position: absolute;
-  margin-left: 32px;
-}
 #map {
   float:left;
   position: absolute;
@@ -76,7 +53,6 @@ export default {
 #pmap {
   width:100%;
 }
-#area1 {
-  
-}
+
+
 </style>
