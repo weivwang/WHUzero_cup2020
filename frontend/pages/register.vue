@@ -5,7 +5,7 @@
 -->
 <template>
     <div>
-      <img src="../static/lingbomen.jpg" class="backimg">
+      <img src="../static/wanlin.jpg" class="backimg">
       <el-card class="registercard">
         <el-form :model="ruleForm" :rules="rules" label-width="100px" ref="ruleForm">
             <el-form-item label="用户名" prop="username" id="username"  class="formlable">
@@ -143,8 +143,8 @@ export default {
   float: left;
   width: 30%;
   height: 40%;
-  margin-left: 37%;
-  margin-top: -50%;
+  margin-left: 35%;
+  margin-top: -40%;
 }
 .backimg{
   float: left;

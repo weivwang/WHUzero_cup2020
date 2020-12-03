@@ -5,7 +5,7 @@
  -->
 <template>
   <div class="login">
-    <img src="../static/lingbomen.jpg" class="backimg" />
+    <img src="../static/wanlin.jpg" class="backimg" />
     <el-card class="registercard">
       <el-form
         ref="ruleForm"
@@ -132,7 +132,7 @@ export default {
   float: left;
   width: 30%;
   height: 40%;
-  margin-left: 37%;
-  margin-top: -50%;
+  margin-left: 35%;
+  margin-top: -40%;
 }
 </style>
