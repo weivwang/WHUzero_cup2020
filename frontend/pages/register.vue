@@ -6,7 +6,9 @@
 <template>
     <div>
       <img src="../static/wanlin.jpg" class="backimg">
-      <el-card class="registercard">
+      <transition name="el-zoom-in-center">
+      <div v-show="true">
+        <el-card class="registercard">
         <el-form :model="ruleForm" :rules="rules" label-width="100px" ref="ruleForm">
             <el-form-item label="用户名" prop="username" id="username"  class="formlable">
                 <el-input v-model="ruleForm.username"></el-input>
@@ -23,6 +25,8 @@
             </el-form-item>
         </el-form>
       </el-card>
+      </div>
+      </transition>
     </div>
 
 </template>

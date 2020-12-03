@@ -7,6 +7,11 @@
 </template>
 
 <script>
+import slide from '../components/IntroductionSlide'
+import home from '../components/IntroductionHome'
+import item from '../components/IntroductionItem'
+import detail from '../components/IntroductionDetail'
+import comment from '../components/IntroductionComment'
 export default {
 
 }
