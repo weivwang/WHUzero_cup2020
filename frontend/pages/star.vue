@@ -5,11 +5,7 @@
 -->
 
 <template>
-  <div style="width: 100%; height: 100%">
-    <el-container
-      class="star_body"
-      style="height: 100%; width: 100%"
-      :style="note"
+    <el-container  
     >
       <el-header>
         <div>
@@ -39,8 +35,131 @@
             </el-col>
           </el-row>
         </el-aside>
-        <el-main> 
+        <el-main class = "container">
+          
             
+              <div style="width: 300px ; margin:10px 10px;">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix">
+                    <span style="font-size: 2rem;">行政楼</span>
+                  </div>
+
+                  <el-row>
+                    <el-col :span="16">
+                      <p></p>
+                    </el-col>
+
+                     <el-col :span="24">
+                      <el-image
+                        :src="require('../static/WHUAdministrationBuilding.png')"
+                        class="card-image"
+                      ></el-image>
+                    </el-col>
+                  </el-row>
+                </el-card>
+              </div>
+              <div style="width: 300px ; margin:10px 10px;">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix">
+                    <span style="font-size: 2rem;">行政楼</span>
+                  </div>
+
+                  <el-row>
+                    <el-col :span="16">
+                      <p></p>
+                    </el-col>
+
+                     <el-col :span="24">
+                      <el-image
+                        :src="require('../static/WHUAdministrationBuilding.png')"
+                        class="card-image"
+                      ></el-image>
+                    </el-col>
+                  </el-row>
+                </el-card>
+              </div>
+              <div style="width: 300px ; margin:10px 10px;">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix">
+                    <span style="font-size: 2rem;">行政楼</span>
+                  </div>
+
+                  <el-row>
+                    <el-col :span="16">
+                      <p></p>
+                    </el-col>
+
+                     <el-col :span="24">
+                      <el-image
+                        :src="require('../static/WHUAdministrationBuilding.png')"
+                        class="card-image"
+                      ></el-image>
+                    </el-col>
+                  </el-row>
+                </el-card>
+              </div>
+              <div style="width: 300px ; margin:10px 10px;">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix">
+                    <span style="font-size: 2rem;">行政楼</span>
+                  </div>
+
+                  <el-row>
+                    <el-col :span="16">
+                      <p></p>
+                    </el-col>
+
+                     <el-col :span="24">
+                      <el-image
+                        :src="require('../static/WHUAdministrationBuilding.png')"
+                        class="card-image"
+                      ></el-image>
+                    </el-col>
+                  </el-row>
+                </el-card>
+              </div>
+              <div style="width: 300px ; margin:10px 10px;">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix">
+                    <span style="font-size: 2rem;">行政楼</span>
+                  </div>
+
+                  <el-row>
+                    <el-col :span="16">
+                      <p></p>
+                    </el-col>
+
+                     <el-col :span="24">
+                      <el-image
+                        :src="require('../static/WHUAdministrationBuilding.png')"
+                        class="card-image"
+                      ></el-image>
+                    </el-col>
+                  </el-row>
+                </el-card>
+              </div>
+              <div style="width: 300px ; margin:10px 10px;">
+                <el-card class="box-card">
+                  <div slot="header" class="clearfix">
+                    <span style="font-size: 2rem;">行政楼</span>
+                  </div>
+
+                  <el-row>
+                    <el-col :span="16">
+                      <p></p>
+                    </el-col>
+
+                     <el-col :span="24">
+                      <el-image
+                        :src="require('../static/WHUAdministrationBuilding.png')"
+                        class="card-image"
+                      ></el-image>
+                    </el-col>
+                  </el-row>
+                </el-card>
+              </div>
+              
+
         </el-main>
       </el-container>
     </el-container>
@@ -51,21 +170,30 @@
 export default {
   data: function () {
     return {
-      note: {
-        backgroundImage: "url(" + require("../static/star_bg.png") + ")",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize:'100% 100%'
-        
-      },
+      
     };
   },
 };
 </script>
 
 <style scoped>
+.container {
+    /* background-color: black; */
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    justify-items: flex-start;
+    align-content: space-around;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    text-align: center;
+    /* opacity: 0; */
+}
 .star_body {
   height: 100%;
+  
 }
 .el-header {
   background-color: #45494e5e;
@@ -132,6 +260,7 @@ export default {
 .box-card {
   display: table-cell;
   vertical-align: center;
+  height: 450px;
 }
 
 .float-image-div {
@@ -142,6 +271,7 @@ export default {
 }
 
 .card-image {
+  height:100%;
 }
 
 .review-box {
