@@ -104,4 +104,10 @@ export default {
   }
 }
 
+.star {
+  z-index: 9999;
+  color: white;
+  right: 30px;
+}
+
 </style>

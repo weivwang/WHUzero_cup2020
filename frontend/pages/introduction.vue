@@ -4,7 +4,7 @@
 -->
 
 <template>
-  <div id="box">
+  <div class="box">
     <div v-swiper:mySwiper="swiperOption" class="swiperWrap">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -123,13 +123,16 @@ export default {
 </script>
 
 <style scoped>
-#box {
+.box {
   height: 100%;
 }
 
 .swiperWrap{
   height: 100%;
 }
+
+
+
 
 
 </style>
