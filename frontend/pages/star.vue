@@ -5,7 +5,7 @@
 -->
 
 <template>
-    <el-container  
+    <el-container style="height:100%"
     >
       <el-header>
         <div>
@@ -61,7 +61,7 @@
               <div style="width: 300px ; margin:10px 10px;">
                 <el-card class="box-card">
                   <div slot="header" class="clearfix">
-                    <span style="font-size: 2rem;">行政楼</span>
+                    <span style="font-size: 2rem;">卓尔体育馆</span>
                   </div>
 
                   <el-row>
@@ -71,7 +71,7 @@
 
                      <el-col :span="24">
                       <el-image
-                        :src="require('../static/WHUAdministrationBuilding.png')"
+                        :src="require('../static/itemAndBackground/itemZhuoer.png')"
                         class="card-image"
                       ></el-image>
                     </el-col>
@@ -81,7 +81,7 @@
               <div style="width: 300px ; margin:10px 10px;">
                 <el-card class="box-card">
                   <div slot="header" class="clearfix">
-                    <span style="font-size: 2rem;">行政楼</span>
+                    <span style="font-size: 2rem;">计算机学院</span>
                   </div>
 
                   <el-row>
@@ -91,67 +91,7 @@
 
                      <el-col :span="24">
                       <el-image
-                        :src="require('../static/WHUAdministrationBuilding.png')"
-                        class="card-image"
-                      ></el-image>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </div>
-              <div style="width: 300px ; margin:10px 10px;">
-                <el-card class="box-card">
-                  <div slot="header" class="clearfix">
-                    <span style="font-size: 2rem;">行政楼</span>
-                  </div>
-
-                  <el-row>
-                    <el-col :span="16">
-                      <p></p>
-                    </el-col>
-
-                     <el-col :span="24">
-                      <el-image
-                        :src="require('../static/WHUAdministrationBuilding.png')"
-                        class="card-image"
-                      ></el-image>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </div>
-              <div style="width: 300px ; margin:10px 10px;">
-                <el-card class="box-card">
-                  <div slot="header" class="clearfix">
-                    <span style="font-size: 2rem;">行政楼</span>
-                  </div>
-
-                  <el-row>
-                    <el-col :span="16">
-                      <p></p>
-                    </el-col>
-
-                     <el-col :span="24">
-                      <el-image
-                        :src="require('../static/WHUAdministrationBuilding.png')"
-                        class="card-image"
-                      ></el-image>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </div>
-              <div style="width: 300px ; margin:10px 10px;">
-                <el-card class="box-card">
-                  <div slot="header" class="clearfix">
-                    <span style="font-size: 2rem;">行政楼</span>
-                  </div>
-
-                  <el-row>
-                    <el-col :span="16">
-                      <p></p>
-                    </el-col>
-
-                     <el-col :span="24">
-                      <el-image
-                        :src="require('../static/WHUAdministrationBuilding.png')"
+                        :src="require('../static/itemAndBackground/itemCSBuilding.png')"
                         class="card-image"
                       ></el-image>
                     </el-col>
@@ -163,37 +103,33 @@
         </el-main>
       </el-container>
     </el-container>
-  </div>
 </template>
 
 <script>
 export default {
   data: function () {
-    return {
-      
-    };
+    return {};
   },
 };
 </script>
 
 <style scoped>
 .container {
-    /* background-color: black; */
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
-    justify-items: flex-start;
-    align-content: space-around;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    text-align: center;
-    /* opacity: 0; */
+  /* background-color: black; */
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  justify-items: flex-start;
+  /*align-content: space-around;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  text-align: center;
+  /* opacity: 0; */
 }
 .star_body {
   height: 100%;
-  
 }
 .el-header {
   background-color: #45494e5e;
@@ -271,7 +207,7 @@ export default {
 }
 
 .card-image {
-  height:100%;
+  height: 100%;
 }
 
 .review-box {
