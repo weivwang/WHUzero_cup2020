@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-11-28 13:45:02
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-29 00:52:54
+ * @LastEditTime: 2020-12-04 22:34:05
  -->
 <template>
   <div class="container">
@@ -285,6 +285,7 @@ export default {
 
 <style scoped>
 .container {
+  overflow: hidden;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;

@@ -4,3 +4,7 @@
 .page-enter, .page-leave-active {
   opacity: 0;
 }
+@font-face {
+  font-family: fz;
+  src: url('../static/繁体叶根友行书.ttf')
+}

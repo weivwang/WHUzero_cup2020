@@ -1,3 +1,8 @@
+<!--
+ * @Date: 2020-12-04 21:16:57
+ * @LastEditors: QiuJhao
+ * @LastEditTime: 2020-12-04 22:28:36
+-->
 <template>
   <div class="root">
     <div class="comment-box">
@@ -28,7 +33,7 @@ export default {
 
   methods: {
     notifyNotAuthorized: function(){
-      if(!this.isAuthorized){
+      if(!this.$store.state.token){
         this.$confirm('您当前处于未登录状态，请登录。', '未登录', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -50,7 +55,7 @@ export default {
 <style scoped>
 .comment-box {
   position: absolute;
-
+overflow: hidden;
   margin-left: 15%;
   margin-top: 7%;
 
