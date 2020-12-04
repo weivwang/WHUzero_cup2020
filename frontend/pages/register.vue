@@ -5,8 +5,10 @@
 -->
 <template>
     <div>
-      <img src="../static/lingbomen.jpg" class="backimg">
-      <el-card class="registercard">
+      <img src="../static/wanlin.jpg" class="backimg">
+      <transition name="el-zoom-in-center">
+      <div v-show="true">
+        <el-card class="registercard">
         <el-form :model="ruleForm" :rules="rules" label-width="100px" ref="ruleForm">
             <el-form-item label="用户名" prop="username" id="username"  class="formlable">
                 <el-input v-model="ruleForm.username"></el-input>
@@ -23,6 +25,8 @@
             </el-form-item>
         </el-form>
       </el-card>
+      </div>
+      </transition>
     </div>
 
 </template>
@@ -143,8 +147,8 @@ export default {
   float: left;
   width: 30%;
   height: 40%;
-  margin-left: 37%;
-  margin-top: -50%;
+  margin-left: 35%;
+  margin-top: -40%;
 }
 .backimg{
   float: left;

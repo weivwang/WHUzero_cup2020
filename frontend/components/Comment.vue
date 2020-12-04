@@ -169,6 +169,12 @@ export default {
     };
   },
   created() {
+    console.log(this.$store.state.token);
+    if(!this.$store.state.token){
+      this.$emit('notAuthorized');
+      return;
+    }
+
     let aid = parseInt(this.article_id);
     console.log("/comment/" + aid);
     console.log(this.$store.state.token);

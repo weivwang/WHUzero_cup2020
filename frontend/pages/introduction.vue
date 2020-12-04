@@ -11,23 +11,37 @@
           <home title="行政楼" background-image-file-name="WHUDefault.jpg"></home>
         </div>
         <div class="swiper-slide">
+          <detail
+            card-title="行政楼"
+            :card-content="administrationIntroduction"
+            :card-images-file-name="['WHUDefault.jpg']"
+            card-swiper-change-time="2000"
+            background-image-file-name="WHUDefault.jpg"></detail>
+        </div>
+        <div class="swiper-slide">
           <slide background-image-file-name="WHUDefault.jpg">
             <template slot="items">
-              <item from-x="30"
-                    from-y="4.5"
-                    to-x="8"
-                    to-y="10"
-                    width="38"
-                    height="49"
+              <item :from-x="30"
+                    :from-y="4.5"
+                    :to-x="8"
+                    :to-y="10"
+                    :width="38"
+                    :height="49"
                     item-id="administration"
                     image-file-name="WHUAdministrationBuilding.png"
-                    ani-time="0.3"
+                    :ani-time="0.3"
                     card-title="行政楼"
                     :card-content="administrationIntroduction"
-                    card-image-file-name="WHUDefault.jpg">
+                    :tags="['武汉大学', '珞珈山职业学院']"
+                    card-image-file-name="WHUDefault.jpg"
+                    :end-scale="1.0"
+              >
               </item>
             </template>
           </slide>
+        </div>
+        <div class="swiper-slide">
+          <comment ref="comment" article-id="99" background-image-file-name="WHUDefault.jpg"></comment>
         </div>
       </div>
 <!--      <div class="swiper-pagination swiper-pagination-bullets"></div>-->
@@ -36,7 +50,7 @@
       <!--      <div class="swiper-button-prev"></div>-->
       <!--      <div class="swiper-button-next"></div>-->
 
-            <div class="swiper-scrollbar"></div>
+            <div class="introduction-swiper-scrollbar swiper-scrollbar"></div>
     </div>
 
   </div>
@@ -48,13 +62,19 @@
 import slide from '../components/IntroductionSlide'
 import home from '../components/IntroductionHome'
 import item from '../components/IntroductionItem'
+import detail from '../components/IntroductionDetail'
+import comment from '../components/IntroductionComment'
+
+let _this;
 
 export default {
   name: 'Introduction',
   components: {
     slide,
     home,
-    item
+    item,
+    detail,
+    comment,
   },
   data: function(){
     return {
@@ -65,26 +85,39 @@ export default {
         spaceBetween: 30,
         mousewheel: true,
         direction: 'vertical',
-        pagination: {
-          el: '.swiper-pagination',
-          dynamicBullets: true
-        },
+        // pagination: {
+        //   el: '.introduction-swiper-pagination',
+        //   dynamicBullets: true
+        // },
 
         scrollbar: {
-          el: '.swiper-scrollbar',
+          el: '.introduction-swiper-scrollbar',
           hide: true
         },
 
+        // nextEl: '.introduction-swiper-button-next',
+        // prevEl: '.introduction-swiper-button-prev',
+
         on: {
           slideChange() {
-            console.log('onSlideChangeEnd', this);
+            if(this.activeIndex === 3){
+              _this.notifyCommentNotAuthorized();
+            }
           },
-          tap() {
-            console.log('onTap', this);
-          }
+          // tap() {
+          //   console.log('onTap', this);
+          // }
         }
       }
     }
+  },
+  methods: {
+    notifyCommentNotAuthorized: function () {
+      _this.$refs.comment.notifyNotAuthorized();
+    }
+  },
+  mounted() {
+    _this = this;
   }
 }
 </script>
