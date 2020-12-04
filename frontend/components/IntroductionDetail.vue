@@ -72,7 +72,7 @@ export default {
 
         autoplay: {
           delay: this.cardSwiperChangeTime,
-          stopOnLastSlide: true,
+          // stopOnLastSlide: true,
           disableOnInteraction: true,
         },
 
