@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-11-24 23:38:36
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-12-04 22:05:15
+ * @LastEditTime: 2020-12-04 23:08:53
 -->
 <template>
   <div>
@@ -70,7 +70,7 @@ body {
   float: left;
   width: 360px;
   height: 190px;
-  left: 45%;
+  left: 42.5%;
   top:30%;
   position: absolute;
   z-index: 70;
