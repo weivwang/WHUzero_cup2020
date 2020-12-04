@@ -40,8 +40,8 @@
             
               <div style="width: 300px ; margin:10px 10px;">
                 <el-card class="box-card">
-                  <div slot="header" class="clearfix">
-                    <span style="font-size: 2rem;">行政楼</span>
+                  <div slot="header" class="clearfix" style="display:flex">
+                    <a style="font-size: 2rem; text-align:center; width:100%" href="/introduction">行政楼</a>
                   </div>
 
                   <el-row>
@@ -60,8 +60,8 @@
               </div>
               <div style="width: 300px ; margin:10px 10px;">
                 <el-card class="box-card">
-                  <div slot="header" class="clearfix">
-                    <span style="font-size: 2rem;">卓尔体育馆</span>
+                  <div slot="header" class="clearfix" style="display:flex">
+                    <a style="font-size: 2rem;text-align:center; width:100%" href="/gui-yuan">桂园</a>
                   </div>
 
                   <el-row>
@@ -78,26 +78,7 @@
                   </el-row>
                 </el-card>
               </div>
-              <div style="width: 300px ; margin:10px 10px;">
-                <el-card class="box-card">
-                  <div slot="header" class="clearfix">
-                    <span style="font-size: 2rem;">计算机学院</span>
-                  </div>
-
-                  <el-row>
-                    <el-col :span="16">
-                      <p></p>
-                    </el-col>
-
-                     <el-col :span="24">
-                      <el-image
-                        :src="require('../static/itemAndBackground/itemCSBuilding.png')"
-                        class="card-image"
-                      ></el-image>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </div>
+              
               
 
         </el-main>
