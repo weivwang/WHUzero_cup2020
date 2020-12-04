@@ -1,7 +1,7 @@
 <!--
  * @Date: 2020-11-28 13:45:02
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-12-04 22:57:22
+ * @LastEditTime: 2020-12-04 23:04:03
  -->
 <template>
   <div class="login">
@@ -102,7 +102,7 @@ export default {
                 this.$store.commit("setToken", token);
                 Cookies.set("token", token, { expires: 30 });
                 Cookies.set("name", this.ruleForm.username, { expires: 30 });
-                location.href = "/map";
+                location.href = "/vr";
               } else {
                 this.$message.error("用户名或密码不正确");
               }

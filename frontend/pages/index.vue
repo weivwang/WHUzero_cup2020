@@ -31,11 +31,10 @@ export default {
     },
   },
   mounted() {
-	  this.$router.push('/Introduction')
 
     let THIS = this;
     // 把time改为5
-    THIS.time = 5;
+    THIS.time = 3;
     // 设定一个定时器，每一秒调用一次coundDown方法，time-1
     setInterval(THIS.countDown, 1000);
   },
