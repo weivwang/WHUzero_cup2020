@@ -19,11 +19,11 @@
         </div>
 
         <el-row>
-          <el-col :span="16">
+          <el-col :span="cardImageFileName ? 16 : 24">
             <p>{{cardContent}}</p>
           </el-col>
 
-          <el-col :span="6" :offset="2">
+          <el-col :span="6" :offset="2" v-if="cardImageFileName">
             <el-image :src="require('~/static/' + cardImageFileName)" class="card-image"></el-image>
           </el-col>
         </el-row>
@@ -298,11 +298,13 @@ export default {
         $('#card-box-' + this.itemId).removeClass('animation-card-state-A-' + this.itemId).addClass('animation-card-state-B-' + this.itemId);
         $('#modal-' + this.itemId).removeClass('animation-modal-state-A-' + this.itemId).addClass('animation-modal-state-B-' + this.itemId);
 
+
         //设置计数器，防止动画进行一半后突然消失
         clearInterval(this.item.clearInterval);
         this.item.clearInterval = setInterval(() => {
           this.item.isShow = false;
         }, 800);
+
 
 
 
@@ -337,11 +339,12 @@ export default {
 .box-card {
   display: table-cell;
   vertical-align: center;
+  margin-top: 20%;
 }
 
 .float-image-div{
   position: absolute;
-  z-index: 999;
+  z-index: 99;
   width: 100%;
   height: 100%;
 }
