@@ -41,7 +41,7 @@
           </slide>
         </div>
         <div class="swiper-slide">
-          <comment ref="comment" article-id="99" background-image-file-name="WHUDefault.jpg"></comment>
+          <comment ref="comment" articleId="1" background-image-file-name="WHUDefault.jpg"></comment>
         </div>
       </div>
 <!--      <div class="swiper-pagination swiper-pagination-bullets"></div>-->

@@ -102,7 +102,7 @@ export default {
                 this.$store.commit("setToken", token);
                 Cookies.set("token", token, { expires: 30 });
                 Cookies.set("name", this.ruleForm.username, { expires: 30 });
-                location.href = "/test_comment";
+                location.href = "/vr";
               } else {
                 this.$message.error("用户名或密码不正确");
               }

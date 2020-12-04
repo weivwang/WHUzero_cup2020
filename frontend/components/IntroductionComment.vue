@@ -28,7 +28,7 @@ export default {
 
   methods: {
     notifyNotAuthorized: function(){
-      if(!this.isAuthorized){
+      if(!this.$store.state.token){
         this.$confirm('您当前处于未登录状态，请登录。', '未登录', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',

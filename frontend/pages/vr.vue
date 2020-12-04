@@ -7,12 +7,13 @@
     <div id="buttonrow">
       <a-row>
         <a-col :span="12">
-          <a-button type="primary" id="starbox" size="large">
+          <a href="/star"><a-button type="primary" id="starbox" size="large">
             我的收藏
           </a-button>
+          </a>
         </a-col>
         <a-col :span="12">
-          <a-button type="primary" id="map" size="large"> 武大探险图 </a-button>
+          <a href="/map"><a-button type="primary" id="map" size="large"> 武大探险图 </a-button></a>
         </a-col>
       </a-row>
     </div>

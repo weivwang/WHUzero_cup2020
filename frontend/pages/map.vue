@@ -6,32 +6,76 @@
 <template>
   <div>
     <img src="../static/map/1.jpg" class="map" />
+
     <item
-      :from-x="30"
-      :from-y="4.5"
-      :to-x="8"
-      :to-y="10"
-      :width="38"
-      :height="49"
+      :from-x="22"
+      :from-y="5"
+      :to-x="20"
+      :to-y="13"
+      :width="30"
+      :height="40"
       item-id="administration"
       image-file-name="map/1_7.png"
       :ani-time="0.3"
-      card-title="wtf"
-      card-content="12345"
-      :tags="['武汉大学', '珞珈山职业学院']"
+      card-title="樱花城堡"
+      card-content="樱花城堡是对武汉大学狮子山腰上老斋舍与樱花的合称。樱花城堡的建筑材料以花岗岩的灰色为主色调，尤显质朴大方、厚稳沉重，三座罗马式拱门和依山势而上的百步梯，与建筑前的樱花组成了一道会让人油然而生的美景。每年毕业生作画留念的背景是这里，樱花节时更吸引了无数的游客再次驻足留念。"
+      :tags="['老斋舍', '樱花城堡']"
+      card-image-file-name="map/1_7.png"
+      :end-scale="1.0"
+    >
+
+    </item>
+    <a href="" class="guiyuan"><p style="font-size:50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></a>
+    <a href="" class="meiyuan"><p style="font-size:50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></a>
+    <a href="" class="luojiashan"><p style="font-size:50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></a>
+
+<!--
+    <item
+      :from-x="10"
+      :from-y="20"
+      :to-x="20"
+      :to-y="13"
+      :width="20"
+      :height="30"
+      item-id="building"
+      image-file-name="map/1_2.png"
+      :ani-time="0.3"
+      card-title="计算机学院"
+      card-content="计算机学院"
+      :tags="['计算机学院大楼', '卓尔体育馆']"
       card-image-file-name="map/1.jpg"
       :end-scale="1.0"
     >
     </item>
+    <item
+      :from-x="10"
+      :from-y="20"
+      :to-x="20"
+      :to-y="13"
+      :width="30"
+      :height="40"
+      item-id="building"
+      image-file-name="map/1_3.png"
+      :ani-time="0.3"
+      card-title="计算机学院"
+      card-content="计算机学院"
+      :tags="['计算机学院大楼', '卓尔体育馆']"
+      card-image-file-name="map/1.jpg"
+      :end-scale="1.0"
+    >
+    </item>
+     -->
   </div>
+
 </template>
 
 <script>
 import slide from "../components/IntroductionSlide";
 import home from "../components/IntroductionHome";
-import item from "../components/IntroductionItem";
+import item from "../components/item_new";
 import detail from "../components/IntroductionDetail";
 import comment from "../components/IntroductionComment";
+
 export default {
   components: {
     slide,
@@ -53,5 +97,21 @@ export default {
   width: 80%;
   height: 40%;
   margin-left: 10%;
+}
+.guiyuan{
+  float: left;
+  margin-top: -32%;
+  margin-left: 28%;
+}
+.meiyuan{
+  float: left;
+  margin-left: 56%;
+  margin-top: -32%;
+};
+.luojiashan{
+  float: left;
+  margin-top: -10%;
+  margin-left: 50%;
+
 }
 </style>
