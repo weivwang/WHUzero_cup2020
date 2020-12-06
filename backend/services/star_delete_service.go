@@ -38,7 +38,7 @@ func (service *DeleteStarService) Delete(user *models.User) *serializers.Respons
 			Message: e.GetMsg(e.NO_STAR),
 		}
 	}
-	if err := models.DB.Delete(&star).Error; err != nil {
+	if err := models.DB.Where("article_id=? and user_id=?", service.ArticleID, user.ID).Delete(&star).Error; err != nil {
 		return &serializers.Response{
 			Status:  e.DELETE_ERROR,
 			Message: e.GetMsg(e.DELETE_ERROR),
