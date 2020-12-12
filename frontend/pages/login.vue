@@ -13,27 +13,22 @@
         :rules="rules"
         label-width="80px"
       >
-      <el-row>
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="ruleForm.username" />
-        </el-form-item>
-      </el-row>
-      <el-row>
-        <el-form-item label="密码" prop="password">
-          <el-input
-            v-model="ruleForm.password"
-            autocomplete="off"
-            type="password"
-          />
-        </el-form-item>
+        <el-row>
+          <el-form-item label="用户名" prop="username">
+            <el-input v-model="ruleForm.username" />
+          </el-form-item>
+        </el-row>
+        <el-row>
+          <el-form-item label="密码" prop="password">
+            <el-input
+              v-model="ruleForm.password"
+              autocomplete="off"
+              type="password"
+            />
+          </el-form-item>
         </el-row>
         <el-form-item>
           <el-row>
-            <el-col :span="8">
-              <el-button type="primary" @click="submitForm('ruleForm')">
-                登录
-              </el-button>
-            </el-col>
             <el-col :span="8">
               <el-button @click="resetForm('ruleForm')">
                 重置
@@ -42,6 +37,11 @@
             <el-col :span="8">
               <el-button type="warning" @click="gotoregister">
                 注册
+              </el-button>
+            </el-col>
+            <el-col :span="8">
+              <el-button type="primary" @click="submitForm('ruleForm')">
+                登录
               </el-button>
             </el-col>
           </el-row>
@@ -120,7 +120,7 @@ export default {
 </script>
 
 <style scoped>
-.el-row{
+.el-row {
   margin-top: 5%;
 }
 .backimg {
