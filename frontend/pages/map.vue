@@ -5,6 +5,13 @@
 -->
 <template>
   <div>
+    <el-header>
+      <div>
+        <i class="el-icon-arrow-left back-btn" style="margin-right: 15px" @click="back"></i>
+        <i class="el-icon-map-location" style="margin-right: 5px"></i>
+        <span>Map</span>
+      </div>
+    </el-header>
     <img src="../static/map/1.jpg" class="map" />
 
     <item
@@ -92,11 +99,30 @@ export default {
 </script>
 
 <style scoped>
+
+.el-header {
+  background-color: #45494e5e;
+  font-size: 20px;
+  color: rgba(255,255,255,.8);
+  display: flex;
+  align-items: center;
+}
+.el-header div {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.back-btn:hover{
+box-shadow: 0 0 2px 2px rgba(255, 221, 108, 1);
+  /* transform: scale(1.01); */
+  cursor: pointer;
+}
 .map {
   float: left;
-  width: 80%;
-  height: 40%;
-  margin-left: 10%;
+  width: 100%;
+  /* height: 40%; */
+  /* margin-left: 10%; */
 }
 .guiyuan{
   float: left;

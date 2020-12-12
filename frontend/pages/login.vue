@@ -5,6 +5,17 @@
  -->
 <template>
   <div class="login">
+    <el-header>
+      <div>
+        <i
+          class="el-icon-arrow-left back-btn"
+          style="margin-right: 15px"
+          @click="back"
+        ></i>
+        <i class="el-icon-user" style="margin-right: 5px"></i>
+        <span>Login</span>
+      </div></el-header
+    >
     <img src="../static/wanlin.jpg" class="backimg" />
     <el-card class="registercard">
       <el-form
@@ -30,14 +41,10 @@
         <el-form-item>
           <el-row>
             <el-col :span="8">
-              <el-button @click="resetForm('ruleForm')">
-                重置
-              </el-button>
+              <el-button @click="resetForm('ruleForm')"> 重置 </el-button>
             </el-col>
             <el-col :span="8">
-              <el-button type="warning" @click="gotoregister">
-                注册
-              </el-button>
+              <el-button type="warning" @click="gotoregister"> 注册 </el-button>
             </el-col>
             <el-col :span="8">
               <el-button type="primary" @click="submitForm('ruleForm')">
@@ -60,7 +67,7 @@ export default {
     return {
       ruleForm: {
         username: "",
-        password: ""
+        password: "",
       },
       rules: {
         username: [
@@ -69,8 +76,8 @@ export default {
             min: 3,
             max: 20,
             message: "长度在 3 到 20 个字符",
-            trigger: "blur"
-          }
+            trigger: "blur",
+          },
         ],
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
@@ -78,10 +85,10 @@ export default {
             min: 6,
             max: 20,
             message: "长度在 6 到 20 个字符",
-            trigger: "blur"
-          }
-        ]
-      }
+            trigger: "blur",
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -89,14 +96,14 @@ export default {
       window.location.href = "/register";
     },
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           axios
             .post("/login", {
               username: this.ruleForm.username,
-              password: this.ruleForm.password
+              password: this.ruleForm.password,
             })
-            .then(rep => {
+            .then((rep) => {
               if (rep.data.status === 200) {
                 const token = rep.data.data.token;
                 this.$store.commit("setToken", token);
@@ -114,12 +121,30 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
+.el-header {
+  background-color: #45494e5e;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+}
+.el-header div {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.back-btn:hover {
+  box-shadow: 0 0 2px 2px rgba(255, 221, 108, 1);
+  /* transform: scale(1.01); */
+  cursor: pointer;
+}
 .el-row {
   margin-top: 5%;
 }

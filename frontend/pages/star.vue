@@ -10,6 +10,7 @@
     <div class="bg"></div>
     <el-header>
       <div>
+        <i class="el-icon-arrow-left back-btn" style="margin-right: 15px" @click="back"></i>
         <i class="el-icon-star-off" style="margin-right: 5px"></i>
         <span>Star</span>
       </div>
@@ -263,6 +264,12 @@ export default {
     Waterfall,
     WaterfallSlot,
   },
+  methods: {
+    back(){
+      alert("back")
+      this.$router.go(-1);//返回上一层
+    }
+  }
 };
 </script>
 
@@ -408,5 +415,11 @@ export default {
   /* applied to the element when moving */
   transition: transform .5s cubic-bezier(.55,0,.1,1);
 
+}
+
+.back-btn:hover{
+box-shadow: 0 0 2px 2px rgba(255, 221, 108, 1);
+  /* transform: scale(1.01); */
+  cursor: pointer;
 }
 </style>
