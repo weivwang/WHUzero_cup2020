@@ -4,92 +4,264 @@
  * @LastEditTime: 2020-12-2 18:31:00
 -->
 
+
 <template>
-    <el-container style="height:100%"
-    >
-      <el-header>
-        <div>
-          <span>Star</span>
-        </div>
-      </el-header>
-      <el-container>
-        <el-aside width="200px">
-          <el-row class="tac">
-            <el-col>
-              <el-menu
-                default-active="2"
-                class="el-menu-vertical-demo"
-                background-color="#545c64"
-                text-color="#fff"
-                active-text-color="#ffd04b"
+  <el-container style="height: 100%">
+    <div class="bg"></div>
+    <el-header>
+      <div>
+        <i class="el-icon-star-off" style="margin-right: 5px"></i>
+        <span>Star</span>
+      </div>
+    </el-header>
+    <el-container>
+      <!-- <el-aside width="200px">
+        <el-row class="tac">
+          <el-col>
+            <el-menu
+              default-active="2"
+              class="el-menu-vertical-demo"
+              background-color="#545c64"
+              text-color="#fff"
+              active-text-color="#ffd04b"
+            >
+              <el-menu-item>
+                <i class="el-icon-setting"></i>
+                <span slot="title">卡片</span>
+              </el-menu-item>
+              <el-menu-item>
+                <i class="el-icon-setting"></i>
+                <span slot="title">图片</span>
+              </el-menu-item>
+            </el-menu>
+          </el-col>
+        </el-row>
+      </el-aside> -->
+      <el-main>
+        <!-- <el-row gutter="20" class="cardRow">
+          <el-col
+            :span="6"
+            v-for="(o, index) in 6"
+            :key="o"
+           
+          >
+            <el-card class="box-card" shadow="hover">
+              <div slot="header" class="clearfix" style="display: flex">
+                <a
+                  style="font-size: 2rem; text-align: center; width: 100%"
+                  href="/introduction"
+                  >行政楼</a
+                >
+              </div>
+
+              <el-row>
+                <el-col :span="16">
+                  <p></p>
+                </el-col>
+
+                <el-col :span="24">
+                  <el-image
+                    :src="require('../static/WHUAdministrationBuilding.png')"
+                    class="card-image"
+                  ></el-image>
+                </el-col>
+              </el-row>
+            </el-card>
+          </el-col>
+        </el-row> -->
+        <waterfall :line-gap="200" :watch="items">
+          <!-- each component is wrapped by a waterfall slot -->
+          <waterfall-slot
+            v-for="(item, index) in items"
+            :width="item.width"
+            :height="item.height"
+            :order="index"
+            :key="item.id"
+            move-class="waterslot"
+          >
+            <!-- <el-card class="box-card" shadow="hover">
+              <div slot="header" class="clearfix" style="display: flex">
+                <a
+                  style="font-size: 2rem; text-align: center; width: 100%"
+                  href="/introduction"
+                  >行政楼</a
+                >
+              </div>
+
+              <el-row>
+                <el-col :span="16">
+                  <p></p>
+                </el-col>
+
+                <el-col :span="24">
+                  <el-image
+                    :src="require('../static/WHUAdministrationBuilding.png')"
+                    class="card-image"
+                  ></el-image>
+                </el-col>
+              </el-row>
+            </el-card> -->
+            <div class="item">
+              <div
+                class="card"
+                style="
+                  background-image: url(https://p0.meituan.net/movie/dbc7ef7ade6ee49ff25bbc7fd7620fd9528767.jpg@464w_644h_1e_1c);
+                "
               >
-                <el-menu-item>
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">卡片</span>
-                </el-menu-item>
-                <el-menu-item>
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">图片</span>
-                </el-menu-item>
-              </el-menu>
-            </el-col>
-          </el-row>
-        </el-aside>
-        <el-main class = "container">
-          
-            
-              <div style="width: 300px ; margin:10px 10px;">
-                <el-card class="box-card">
-                  <div slot="header" class="clearfix" style="display:flex">
-                    <a style="font-size: 2rem; text-align:center; width:100%" href="/introduction">行政楼</a>
-                  </div>
-
-                  <el-row>
-                    <el-col :span="16">
-                      <p></p>
-                    </el-col>
-
-                     <el-col :span="24">
-                      <el-image
-                        :src="require('../static/WHUAdministrationBuilding.png')"
-                        class="card-image"
-                      ></el-image>
-                    </el-col>
-                  </el-row>
-                </el-card>
+                <span class="title">大鱼海棠</span>
               </div>
-              <div style="width: 300px ; margin:10px 10px;">
-                <el-card class="box-card">
-                  <div slot="header" class="clearfix" style="display:flex">
-                    <a style="font-size: 2rem;text-align:center; width:100%" href="/gui-yuan">桂园</a>
-                  </div>
-
-                  <el-row>
-                    <el-col :span="16">
-                      <p></p>
-                    </el-col>
-
-                     <el-col :span="24">
-                      <el-image
-                        :src="require('../static/itemAndBackground/itemZhuoer.png')"
-                        class="card-image"
-                      ></el-image>
-                    </el-col>
-                  </el-row>
-                </el-card>
-              </div>
-              
-              
-
-        </el-main>
-      </el-container>
+            </div>
+          </waterfall-slot>
+        </waterfall>
+      </el-main>
     </el-container>
+  </el-container>
 </template>
 
 <script>
+import Waterfall from "vue-waterfall/lib/waterfall";
+import WaterfallSlot from "vue-waterfall/lib/waterfall-slot";
+import VueAnimatedList from 'vue-animated-list'
 export default {
   data: function () {
-    return {};
+    return {
+      items: [
+        {
+          width: 100,
+          height: 200,
+          id: 1,
+        },
+        {
+          width: 100,
+          height: 100,
+          id: 2,
+        },
+        {
+          width: 100,
+          height: 300,
+          id: 3,
+        },
+        {
+          width: 100,
+          height: 250,
+          id: 4,
+        },
+        {
+          width: 100,
+          height: 50,
+          id: 5,
+        },
+        {
+          width: 100,
+          height: 200,
+          id: 6,
+        },
+        {
+          width: 100,
+          height: 100,
+          id: 7,
+        },
+        {
+          width: 100,
+          height: 300,
+          id: 8,
+        },
+        {
+          width: 100,
+          height: 250,
+          id: 9,
+        },
+        {
+          width: 100,
+          height: 50,
+          id: 10,
+        },
+        {
+          width: 100,
+          height: 200,
+          id: 11,
+        },
+        {
+          width: 100,
+          height: 100,
+          id: 12,
+        },
+        {
+          width: 100,
+          height: 300,
+          id: 13,
+        },
+        {
+          width: 100,
+          height: 250,
+          id: 14,
+        },
+        {
+          width: 100,
+          height: 50,
+          id: 15,
+        },
+        {
+          width: 100,
+          height: 200,
+          id: 16,
+        },
+        {
+          width: 100,
+          height: 100,
+          id: 17,
+        },
+        {
+          width: 100,
+          height: 300,
+          id: 18,
+        },
+        {
+          width: 100,
+          height: 250,
+          id: 19,
+        },
+        {
+          width: 100,
+          height: 50,
+          id: 20,
+        },
+        {
+          width: 100,
+          height: 200,
+          id: 21,
+        },
+        {
+          width: 100,
+          height: 100,
+          id: 22,
+        },
+        {
+          width: 100,
+          height: 300,
+          id: 23,
+        },
+        {
+          width: 100,
+          height: 250,
+          id: 24,
+        },
+        {
+          width: 100,
+          height: 50,
+          id: 25,
+        },
+        {
+          width: 100,
+          height: 200,
+          id: 26,
+        },
+      ],
+    };
+  },
+  components: {
+    Waterfall,
+    WaterfallSlot,
   },
 };
 </script>
@@ -124,11 +296,24 @@ export default {
   align-items: center;
   justify-items: center;
 }
-.el-aside {
-  background-color: #8c946a70;
-}
 .el-main {
-  background-color: rgba(255, 248, 220, 0.37);
+  /* background: url(https://p0.meituan.net/movie/dbc7ef7ade6ee49ff25bbc7fd7620fd9528767.jpg@464w_644h_1e_1c);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+  /* text-align: center; */
+  /* filter: blur(15px); */
+}
+.bg{
+  position: fixed;
+  background: url(https://p0.meituan.net/movie/dbc7ef7ade6ee49ff25bbc7fd7620fd9528767.jpg@464w_644h_1e_1c);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  filter: blur(10px);
+  z-index: -9;
 }
 
 .time {
@@ -162,60 +347,66 @@ export default {
 }
 
 .card {
-  width: 10%;
-  height: 20%;
-}
-
-/* 卡片 */
-.introduction-item-root {
-  height: 100%;
-  width: 100%;
   position: absolute;
-  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 20px 20px 20px 20px;
+  /* top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px; */
 }
 
-.box-card {
-  display: table-cell;
-  vertical-align: center;
-  height: 450px;
-}
-
-.float-image-div {
+.item {
   position: absolute;
-  z-index: 999;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  font-size: 1.2em;
+  color: rgb(0, 158, 107);
+  border-radius: 15px;
+}
+
+.card .movie {
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  display: block;
+  width: 50px;
+  left: -1%;
+  top: 10%;
+  box-shadow: 0 0 10px 0 gray;
+  background-color: rgb(77, 129, 233);
+}
+
+.card .title {
+  color: #ededed;
+  position: absolute;
+  left: 0%;
+  top: 100%;
+  text-align: center;
+  transform: translate(0, -100%);
   width: 100%;
-  height: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    0deg,
+    rgba(255, 205, 130, 0.575),
+    rgba(255, 221, 108, 0)
+  );
 }
 
-.card-image {
-  height: 100%;
+.card:hover {
+  box-shadow: 0 0 2px 2px rgba(255, 221, 108, 1);
+  /* transform: scale(1.01); */
+  cursor: pointer;
 }
 
-.review-box {
-  display: flex;
-  flex-wrap: wrap;
+.waterslot{
+  /* applied to the element when moving */
+  transition: transform .5s cubic-bezier(.55,0,.1,1);
 
-  margin-bottom: 15px;
-}
-
-.review-bubble {
-  border-radius: 50px;
-
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-
-.review-bubble-content {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.new-review-box {
-  width: 100%;
-}
-
-.new-review-box-input-and-button {
-  display: flex;
-  flex-wrap: wrap;
 }
 </style>
