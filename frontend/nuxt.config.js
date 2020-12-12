@@ -1,7 +1,7 @@
 /*
  * @Date: 2020-11-13 20:02:33
  * @LastEditors: QiuJhao
- * @LastEditTime: 2020-11-28 22:25:33
+ * @LastEditTime: 2020-12-11 14:21:18
  */
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -52,6 +52,7 @@ export default {
     '@/plugins/element-ui',
     '@/plugins/axios',
     '@/plugins/persistedstate',
+    '@/plugins/vfab',
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

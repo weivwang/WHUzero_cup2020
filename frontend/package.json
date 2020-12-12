@@ -24,6 +24,7 @@
     "swiper": "^5.2.0",
     "video.js": "^7.10.2",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-float-action-button": "^0.6.6",
     "vue-video-player": "^5.0.2",
     "vuex": "^3.6.0",
     "vuex-persistedstate": "^4.0.0-beta.1"
