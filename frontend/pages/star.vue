@@ -313,7 +313,7 @@ export default {
 }
 .bg{
   position: fixed;
-  background: url(https://p0.meituan.net/movie/dbc7ef7ade6ee49ff25bbc7fd7620fd9528767.jpg@464w_644h_1e_1c);
+  background: url(../static/star_bg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

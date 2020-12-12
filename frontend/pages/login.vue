@@ -92,6 +92,10 @@ export default {
     };
   },
   methods: {
+    back(){
+      alert("back")
+      this.$router.go(-1);//返回上一层
+    },
     gotoregister() {
       window.location.href = "/register";
     },
