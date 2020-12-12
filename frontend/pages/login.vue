@@ -14,7 +14,7 @@
         label-width="80px"
       >
         <el-row>
-          <el-form-item label="用户名" prop="username">
+          <el-form-item label="用户名" style="usertext" prop="username">
             <el-input v-model="ruleForm.username" />
           </el-form-item>
         </el-row>
@@ -134,5 +134,8 @@ export default {
   height: 40%;
   margin-left: 35%;
   margin-top: -40%;
+}
+#usertext{
+  color: white;
 }
 </style>
