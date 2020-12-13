@@ -174,8 +174,6 @@ export default {
   margin-left: 10%;
 }
 .registercard {
-  background-color: #60626650;
-  -webkit-filter: blur(10px);
   float: left;
   width: 30%;
   height: 40%;
@@ -187,8 +185,5 @@ export default {
   width: 100%;
   height: 100%;
 }
-.regispage {
-  background-image: url(../static/lingbomen.jpg);
-  background-repeat: no-repeat;
-}
+
 </style>

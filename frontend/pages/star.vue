@@ -10,7 +10,7 @@
     <div class="bg"></div>
     <el-header>
       <div>
-        <i class="el-icon-arrow-left back-btn" style="margin-right: 15px" @click="back"></i>
+        <i class="el-icon-arrow-left back-btn" style="margin-right: 15px" ></i>
         <i class="el-icon-star-off" style="margin-right: 5px"></i>
         <span>Star</span>
       </div>
@@ -44,7 +44,7 @@
             :span="6"
             v-for="(o, index) in 6"
             :key="o"
-           
+
           >
             <el-card class="box-card" shadow="hover">
               <div slot="header" class="clearfix" style="display: flex">

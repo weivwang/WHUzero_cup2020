@@ -10,7 +10,7 @@
         <i
           class="el-icon-arrow-left back-btn"
           style="margin-right: 15px"
-          @click="back"
+
         ></i>
         <i class="el-icon-user" style="margin-right: 5px"></i>
         <span>Login</span>

@@ -14,6 +14,7 @@
     </el-header>
     <img src="../static/map/1.jpg" class="map" />
 
+<!--
     <item
       :from-x="22"
       :from-y="5"
@@ -31,7 +32,15 @@
       :end-scale="1.0"
     >
 
+
     </item>
+    -->
+
+
+
+
+
+
     <a href="" class="guiyuan"><p style="font-size:50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></a>
     <a href="" class="meiyuan"><p style="font-size:50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></a>
     <a href="" class="luojiashan"><p style="font-size:50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></a>
