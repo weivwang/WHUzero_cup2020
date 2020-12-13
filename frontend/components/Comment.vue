@@ -15,7 +15,6 @@
       <el-form-item prop="content">
         <el-input
           :rows="3"
-          autofocus="autofocus"
           maxlength="250"
           placeholder="写下你的想法"
           resize="none"
@@ -26,7 +25,7 @@
       </el-form-item>
       <el-form-item>
         <el-button @click="submitComment" style="float: right" type="primary"
-          >提交
+        >提交
         </el-button>
       </el-form-item>
     </el-form>
@@ -70,7 +69,7 @@
             </el-form-item>
             <el-form-item>
               <el-button @click="submitReply" style="float: right"
-                >确定
+              >确定
               </el-button>
             </el-form-item>
           </el-form>
