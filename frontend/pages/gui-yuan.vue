@@ -28,27 +28,27 @@
           ></detail>
         </div>
         <div class="swiper-slide">
-          <slide background-image-file-name="itemAndBackground/BgGui.JPG">
+          <slide :items-in="items" background-image-file-name="itemAndBackground/BgGui.JPG">
             <template slot="items">
-              <item
-                :from-x="64"
-                :from-y="0"
-                :to-x="8"
-                :to-y="3"
-                :width="36"
-                :height="105"
-                item-id="CSBuilding"
-                image-file-name="itemAndBackground/ItemCSBuilding.png"
-                :ani-time="0.3"
-                card-title="计算机学院"
-                card-content="武汉大学计算机学院是全国最早建立的计算机科学院系之一，教学与科研历史可追溯到1958年成立的计算技术专业。近年来，学院在国家《统筹推进世界一流大学和一流学科建设总体方案》的指引下，不断提升学科综合实力和核心竞争力，在人才培养、科学研究、社会服务等方面取得显著成效。在2017年教育部学科评估中，计算机科学与技术及软件工程两个一级学科均位列A档。学院的计算机科学学科也是我校进入ESI全球排名前2‰的学科之一。"
-                :tags="['院办', '做实验']"
-                card-image-file-name=""
-                :end-scale="0.5"
-                @showModal="showModal"
-                @hideModal="hideModal"
-              >
-              </item>
+<!--              <item-->
+<!--                :from-x="64"-->
+<!--                :from-y="0"-->
+<!--                :to-x="8"-->
+<!--                :to-y="3"-->
+<!--                :width="36"-->
+<!--                :height="105"-->
+<!--                item-id="CSBuilding"-->
+<!--                image-file-name="itemAndBackground/ItemCSBuilding.png"-->
+<!--                :ani-time="0.3"-->
+<!--                card-title="计算机学院"-->
+<!--                card-content="武汉大学计算机学院是全国最早建立的计算机科学院系之一，教学与科研历史可追溯到1958年成立的计算技术专业。近年来，学院在国家《统筹推进世界一流大学和一流学科建设总体方案》的指引下，不断提升学科综合实力和核心竞争力，在人才培养、科学研究、社会服务等方面取得显著成效。在2017年教育部学科评估中，计算机科学与技术及软件工程两个一级学科均位列A档。学院的计算机科学学科也是我校进入ESI全球排名前2‰的学科之一。"-->
+<!--                :tags="['院办', '做实验']"-->
+<!--                card-image-file-name=""-->
+<!--                :end-scale="0.5"-->
+<!--                @showModal="showModal"-->
+<!--                @hideModal="hideModal"-->
+<!--              >-->
+<!--              </item>-->
 
               <!--              <item :from-x="0"-->
               <!--                    :from-y="20"-->
@@ -70,7 +70,7 @@
           </slide>
         </div>
         <div class="swiper-slide">
-          <slide background-image-file-name="itemAndBackground/BgGui2.png">
+          <slide :items-in="items" background-image-file-name="itemAndBackground/BgGui2.png">
             <template slot="items">
               <item
                 :from-x="0"
@@ -155,6 +155,75 @@ export default {
   },
   data: function () {
     return {
+      items:[
+        {
+          fromX: 64,
+          fromY: 0,
+          toX: 8,
+          toY: 3,
+          itemId: 'csBuilding',
+          imageFileName: 'itemAndBackground/ItemCSBuilding.png',
+          aniTime: 0.3,
+          cardTitle: '计算机学院',
+          cardContent: '武汉大学计算机学院是全国最早建立的计算机科学院系之一，教学与科研历史可追溯到1958年成立的计算技术专业。近年来，学院在国家《统筹推进世界一流大学和一流学科建设总体方案》的指引下，不断提升学科综合实力和核心竞争力，在人才培养、科学研究、社会服务等方面取得显著成效。在2017年教育部学科评估中，计算机科学与技术及软件工程两个一级学科均位列A档。学院的计算机科学学科也是我校进入ESI全球排名前2‰的学科之一。',
+          cardImageFileName: '',
+          width: 36,
+          height: 105,
+          tags: ['院办', '做实验'],
+          endScale: 0.5,
+          item: {
+            /**
+             * 是否显示详情
+             */
+            isShow: false,
+
+            /**
+             * 是否展示阴影
+             */
+            isShowShadow: false,
+
+
+            /**
+             * 用于优化的计时器
+             */
+            clearInterval: null
+          }
+        },
+        {
+          fromX: 0,
+          fromY: 20,
+          toX: 2,
+          toY: 17,
+          itemId: 'zhuoEr',
+          imageFileName: 'itemAndBackground/ItemZhuoer.png',
+          aniTime: 0.3,
+          cardTitle: '卓尔体育馆',
+          cardContent: '武汉大学计算机学院是全国最早建立的计算机科学院系之一，教学与科研历史可追溯到1958年成立的计算技术专业。近年来，学院在国家《统筹推进世界一流大学和一流学科建设总体方案》的指引下，不断提升学科综合实力和核心竞争力，在人才培养、科学研究、社会服务等方面取得显著成效。在2017年教育部学科评估中，计算机科学与技术及软件工程两个一级学科均位列A档。学院的计算机科学学科也是我校进入ESI全球排名前2‰的学科之一。',
+          cardImageFileName: '',
+          width: 50,
+          height: 35,
+          tags: ['羽毛球体育课', '开学典礼'],
+          endScale: 0.8,
+          item: {
+            /**
+             * 是否显示详情
+             */
+            isShow: false,
+
+            /**
+             * 是否展示阴影
+             */
+            isShowShadow: false,
+
+
+            /**
+             * 用于优化的计时器
+             */
+            clearInterval: null
+          }
+        }
+
+      ],
       isStarred: false,
       introduction:
         "武汉大学（Wuhan University）简称“武大”，是中华人民共和国教育部直属的综合性全国重点大学；位列“世界一流大学和一流学科”、“985工程”、“211工程”；入选学位授权自主审核单位、“珠峰计划”、“强基计划”、“2011计划”、“111计划”、卓越工程师教育培养计划、卓越法律人才教育培养计划、卓越医生教育培养计划、国家建设高水平大学公派研究生项目、国家级新工科研究与实践项目、一流网络安全学院建设示范项目高校、中国政府奖学金来华留学生接收院校、全国深化创新创业教育改革示范高校、国家大学生文化素质教育基地、大众创业万众创新示范基地、基础学科拔尖学生培养计划2.0基地，为欧亚-太平洋大学联盟、大学通识教育联盟、中国高校行星科学联盟、法学教育创新联盟、医学“双一流”建设联盟成员。",
