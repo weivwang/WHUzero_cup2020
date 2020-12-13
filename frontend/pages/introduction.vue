@@ -8,7 +8,7 @@
     <div v-swiper:mySwiper="swiperOption" class="swiperWrap">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <home title="行政楼" background-image-file-name="WHUDefault.jpg"></home>
+          <home title="行政楼" background-image-file-name="itemAndBackground/BgAdmFront.JPG"></home>
         </div>
         <div class="swiper-slide">
           <detail
@@ -16,7 +16,7 @@
             :card-content="administrationIntroduction"
             :card-images-file-name="['WHUDefault.jpg']"
             card-swiper-change-time="2000"
-            background-image-file-name="WHUDefault.jpg"></detail>
+            background-image-file-name="itemAndBackground/BgAdm2.JPG"></detail>
         </div>
         <div class="swiper-slide">
           <slide :items-in="items" background-image-file-name="WHUDefault.jpg">
@@ -42,7 +42,7 @@
           </slide>
         </div>
         <div class="swiper-slide">
-          <comment ref="comment" articleId="99" background-image-file-name="WHUDefault.jpg"></comment>
+          <comment ref="comment" articleId="99" background-image-file-name="itemAndBackground/BgAdmComment.JPG"></comment>
         </div>
       </div>
 <!--      <div class="swiper-pagination swiper-pagination-bullets"></div>-->
