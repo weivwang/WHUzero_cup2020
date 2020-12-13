@@ -106,6 +106,7 @@
               <div
                 class="card"
                 :style="{ backgroundImage:'url('+item.img+')' }"
+                @click="onClick(item.url)"
               >
                 <span class="title">{{item.name}}</span>
               </div>
@@ -126,137 +127,125 @@ export default {
     return {
       items: [
         {
-          img:  require("../static/itemAndBackground/BgJiaoSanFront.jpg"),
-          name: "教三",
+          img:  require("../static/cover/DSC00711.png"),
+          name: "牌坊",
+          width: 300,
+          height: 400,
+          id: 1,
+          url: "https://baike.baidu.com/item/%E6%AD%A6%E6%B1%89%E5%A4%A7%E5%AD%A6%E7%89%8C%E6%A5%BC/3271452?fr=aladdin"
+        },
+        {
+          img:  require("../static/cover/DSC00764.png"),
+          name: "城设学院",
+          width: 300,
+          height: 300,
+          id: 2,
+          url: "http://sud.whu.edu.cn/cmfx/index.html"
+        },
+        {
+          img:  require("../static/cover/DSC00766.png"),
+          name: "樱花大道附近",
+          width: 300,
+          height: 300,
+          id: 3,
+          url: "https://baike.baidu.com/item/%E6%A8%B1%E8%8A%B1%E5%A4%A7%E9%81%93/18656782?fr=aladdin"
+        },
+        {
+          img:  require("../static/cover/DSC00783.png"),
+          name: "计算机学院",
+          width: 300,
+          height: 600,
+          id: 4,
+          url: "http://cs.whu.edu.cn/"
+        },
+        {
+          img:  require("../static/cover/DSC00768.png"),
+          name: "樱花大道附近",
+          width: 300,
+          height: 500,
+          id: 5,
+          url: "https://baike.baidu.com/item/%E6%A8%B1%E8%8A%B1%E5%A4%A7%E9%81%93/18656782?fr=aladdin"
+        },
+        {
+          img:  require("../static/cover/DSC00773.png"),
+          name: "桂操",
+          width: 300,
+          height: 400,
+          id: 6,
+          url: "https://baike.baidu.com/item/%E6%A1%82%E5%9B%AD/12428175?fr=aladdin"
+        },
+        {
+          img:  require("../static/cover/DSC00672.png"),
+          name: "梅操附近",
+          width: 300,
+          height: 600,
+          id: 7,
+          url: ""
+        },
+        {
+          img:  require("../static/cover/DSC00693.png"),
+          name: "珞珈山",
+          width: 300,
+          height: 300,
+          id: 8,
+          url: "https://baike.baidu.com/item/%E7%8F%9E%E7%8F%88%E5%B1%B1/446864?fr=aladdin"
+        },
+        {
+          img:  require("../static/cover/DSC00698.png"),
+          name: "珞珈山",
+          width: 300,
+          height: 400,
+          id: 9,
+          url: "https://baike.baidu.com/item/%E7%8F%9E%E7%8F%88%E5%B1%B1/446864?fr=aladdin"
+        },
+        {
+          img:  require("../static/cover/DSC00694.png"),
+          name: "珞珈山",
           width: 300,
           height: 200,
-          id: 1,
+          id: 10,
+          url: "https://baike.baidu.com/item/%E7%8F%9E%E7%8F%88%E5%B1%B1/446864?fr=aladdin"
         },
-        // {
-        //   width: 300,
-        //   height: 100,
-        //   id: 2,
-        // },
-        // {
-        //   width: 300,
-        //   height: 300,
-        //   id: 3,
-        // },
-        // {
-        //   width: 300,
-        //   height: 250,
-        //   id: 4,
-        // },
-        // {
-        //   width: 300,
-        //   height: 50,
-        //   id: 5,
-        // },
-        // {
-        //   width: 300,
-        //   height: 200,
-        //   id: 6,
-        // },
-        // {
-        //   width: 300,
-        //   height: 100,
-        //   id: 7,
-        // },
-        // {
-        //   width: 300,
-        //   height: 300,
-        //   id: 8,
-        // },
-        // {
-        //   width: 300,
-        //   height: 250,
-        //   id: 9,
-        // },
-        // {
-        //   width: 300,
-        //   height: 50,
-        //   id: 10,
-        // },
-        // {
-        //   width: 300,
-        //   height: 200,
-        //   id: 11,
-        // },
-        // {
-        //   width: 300,
-        //   height: 100,
-        //   id: 12,
-        // },
-        // {
-        //   width: 300,
-        //   height: 300,
-        //   id: 13,
-        // },
-        // {
-        //   width: 300,
-        //   height: 250,
-        //   id: 14,
-        // },
-        // {
-        //   width: 300,
-        //   height: 50,
-        //   id: 15,
-        // },
-        // {
-        //   width: 300,
-        //   height: 200,
-        //   id: 16,
-        // },
-        // {
-        //   width: 300,
-        //   height: 100,
-        //   id: 17,
-        // },
-        // {
-        //   width: 300,
-        //   height: 300,
-        //   id: 18,
-        // },
-        // {
-        //   width: 300,
-        //   height: 250,
-        //   id: 19,
-        // },
-        // {
-        //   width: 300,
-        //   height: 50,
-        //   id: 20,
-        // },
-        // {
-        //   width: 300,
-        //   height: 200,
-        //   id: 21,
-        // },
-        // {
-        //   width: 300,
-        //   height: 100,
-        //   id: 22,
-        // },
-        // {
-        //   width: 300,
-        //   height: 300,
-        //   id: 23,
-        // },
-        // {
-        //   width: 300,
-        //   height: 250,
-        //   id: 24,
-        // },
-        // {
-        //   width: 300,
-        //   height: 50,
-        //   id: 25,
-        // },
-        // {
-        //   width: 300,
-        //   height: 200,
-        //   id: 26,
-        // },
+         {
+          img:  require("../static/cover/DSC00696.png"),
+          name: "珞珈山",
+          width: 300,
+          height: 200,
+          id: 11,
+          url: "https://baike.baidu.com/item/%E7%8F%9E%E7%8F%88%E5%B1%B1/446864?fr=aladdin"
+        },
+        {
+          img:  require("../static/cover/DSC00662.png"),
+          name: "樱顶",
+          width: 300,
+          height: 500,
+          id: 12,
+          url: "https://baike.baidu.com/item/%E6%A8%B1%E9%A1%B6"
+        },
+        {
+          img:  require("../static/cover/DSC00675.png"),
+          name: "行政楼",
+          width: 300,
+          height: 300,
+          id: 13,
+          url: "https://baike.baidu.com/item/%E6%AD%A6%E6%B1%89%E5%A4%A7%E5%AD%A6%E8%A1%8C%E6%94%BF%E6%A5%BC"
+        },
+        {
+          img:  require("../static/cover/DSC00661.png"),
+          name: "樱顶宿舍",
+          width: 300,
+          height: 600,
+          id: 14,
+          url: "https://baike.baidu.com/item/%E6%A8%B1%E9%A1%B6"
+        },
+        {
+          img:  require("../static/cover/DSC00778.png"),
+          name: "鲲鹏广场",
+          width: 300,
+          height: 300,
+          id: 15,
+          url: "https://baike.baidu.com/item/%E9%B2%B2%E9%B9%8F%E5%B9%BF%E5%9C%BA/3271962"
+        },
       ],
     };
   },
@@ -268,6 +257,17 @@ export default {
     back(){
       alert("back")
       this.$router.go(-1);//返回上一层
+    },
+    onClick(url){
+      if(url == "") {
+        this.$notify({
+          title: '抱歉',
+          message: '暂未收录T_T',
+          position: 'top-left'
+        });
+      }
+      else
+        window.location.href = url;
     }
   }
 };
