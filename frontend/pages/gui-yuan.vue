@@ -70,27 +70,8 @@
           </slide>
         </div>
         <div class="swiper-slide">
-          <slide :items-in="items" background-image-file-name="itemAndBackground/BgGui2.png">
-            <template slot="items">
-              <item
-                :from-x="0"
-                :from-y="38"
-                :to-x="-300"
-                :to-y="30"
-                :width="100"
-                :height="23"
-                item-id="JiaoSan"
-                image-file-name="itemAndBackground/ItemJiaoSan.png"
-                :ani-time="0.3"
-                card-title="教三"
-                card-content="热心的徐教授铺开武汉大学校园地图，指着桂园宿舍楼一一还原它们的前世今生：桂园五舍、桂园二舍、桂园三舍、桂园四舍建于上世纪50年代末，当时分别叫八舍、九舍、十舍、十一舍；今天的桂园一舍及桂园六舍、桂园七舍都是改革开放之后仿照此前桂舍风格所建，而“老八舍”一直文科学生所居住，其中，包括恢复高考首批77级和78级中文系学生。78级学子、现为武大著名学者的李卓钧教授当年也住在“老八舍”。他回忆说，当时他们中文系男生住在一二楼，三四楼住女生，他的同班同学、著名作家方方也住在楼上。当年女学生喻杉名震中国文坛的小说《女大学生宿舍》也诞生在“老八舍”。"
-                :tags="['上课', '公选']"
-                card-image-file-name=""
-                :end-scale="1"
-                @showModal="showModal"
-                @hideModal="hideModal"
-              >
-              </item>
+          <slide :items-in="items2" background-image-file-name="itemAndBackground/BgGui2.png">
+
 
               <!--              <item :from-x="0"-->
               <!--                    :from-y="20"-->
@@ -108,7 +89,6 @@
               <!--                    :end-scale="0.8"-->
               <!--              >-->
               <!--              </item>-->
-            </template>
           </slide>
         </div>
 
@@ -223,6 +203,41 @@ export default {
           }
         }
 
+      ],
+      items2: [
+        {
+          fromX: 0,
+          fromY: 38,
+          toX: -300,
+          toY: 30,
+          itemId: 'jiaoSan',
+          imageFileName: 'itemAndBackground/ItemJiaoSan.png',
+          aniTime: 0.3,
+          cardTitle: '教三',
+          cardContent: '热心的徐教授铺开武汉大学校园地图，指着桂园宿舍楼一一还原它们的前世今生：桂园五舍、桂园二舍、桂园三舍、桂园四舍建于上世纪50年代末，当时分别叫八舍、九舍、十舍、十一舍；今天的桂园一舍及桂园六舍、桂园七舍都是改革开放之后仿照此前桂舍风格所建，而“老八舍”一直文科学生所居住，其中，包括恢复高考首批77级和78级中文系学生。78级学子、现为武大著名学者的李卓钧教授当年也住在“老八舍”。他回忆说，当时他们中文系男生住在一二楼，三四楼住女生，他的同班同学、著名作家方方也住在楼上。当年女学生喻杉名震中国文坛的小说《女大学生宿舍》也诞生在“老八舍”。',
+          cardImageFileName: '',
+          width: 100,
+          height: 23,
+          tags: ['上课', '公选'],
+          endScale: 1,
+          item: {
+            /**
+             * 是否显示详情
+             */
+            isShow: false,
+
+            /**
+             * 是否展示阴影
+             */
+            isShowShadow: false,
+
+
+            /**
+             * 用于优化的计时器
+             */
+            clearInterval: null
+          }
+        }
       ],
       isStarred: false,
       introduction:

@@ -1,7 +1,7 @@
 <template>
   <div class="single-slide-div">
     <img class="background-image" :src="require('../static/' + backgroundImageFileName)"/>
-    <div id="modal"></div>
+    <div :id="'modal-' + itemsIn[0].itemId"></div>
 
     <img :src="require('~/static/' + item.imageFileName)" v-for="(item, i) in items" style="position: absolute"
          :id="'item-image-' + item.itemId"
@@ -248,6 +248,15 @@ export default {
 
       })
 
+      sheet.insertRule(`
+      #modal-${this.itemsIn[0].itemId}{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: black;
+  opacity: 0;
+}`, 0)
+
     },
     /**
      * 鼠标在图片上移走的响应方法
@@ -269,7 +278,7 @@ export default {
         //开始展示动画
         $('#item-image-' + item.itemId).removeClass('animation-item-state-A-' + item.itemId).addClass('animation-item-state-B-' + item.itemId);
         $('#card-box-' + item.itemId).removeClass('animation-card-state-A-' + item.itemId).addClass('animation-card-state-B-' + item.itemId);
-        $('#modal').removeClass('animation-modal-state-A').addClass('animation-modal-state-B');
+        $('#modal-' + this.itemsIn[0].itemId).removeClass('animation-modal-state-A').addClass('animation-modal-state-B');
 
 
         //设置计数器，防止动画进行一半后突然消失
@@ -288,7 +297,7 @@ export default {
         //开始展示动画
         $('#item-image-' + item.itemId).removeClass('animation-item-state-B-' + item.itemId).addClass('animation-item-state-A-' + item.itemId);
         $('#card-box-' + item.itemId).removeClass('animation-card-state-B-' + item.itemId).addClass('animation-card-state-A-' + item.itemId);
-        $('#modal').removeClass('animation-modal-state-B').addClass('animation-modal-state-A');
+        $('#modal-' + this.itemsIn[0].itemId).removeClass('animation-modal-state-B').addClass('animation-modal-state-A');
 
         clearInterval(item.item.clearInterval);
         item.item.isShow = true;
@@ -411,12 +420,6 @@ export default {
   padding-bottom: 10px;
 }
 
-#modal{
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background: black;
-  opacity: 0;
-}
+
 
 </style>
