@@ -37,6 +37,7 @@
             </div>
           </div>
         </div>
+        <el-link v-if="item.url" :href="item.url" style="margin-left: 10px" type="primary">查看详情</el-link>
 
         <!--        <div class="new-review-box">-->
         <!--          &lt;!&ndash;          <div class="el-card review-bubble is-always-shadow">&ndash;&gt;-->
@@ -71,6 +72,11 @@ export default {
     item
   },
   methods: {
+    toPage: function (item){
+      if(item.url){
+        this.$router.push(item.url);
+      }
+    },
     /**
      * 初始化设置Css
      */
@@ -394,7 +400,7 @@ export default {
   display: table-cell;
   vertical-align: center;
   margin-top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-40%);
 }
 
 
