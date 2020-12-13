@@ -10,7 +10,7 @@
         <i
           class="el-icon-arrow-left back-btn"
           style="margin-right: 15px"
-          @click="back"
+
         ></i>
         <i class="el-icon-user" style="margin-right: 5px"></i>
         <span>Login</span>
@@ -25,7 +25,7 @@
         label-width="80px"
       >
         <el-row>
-          <el-form-item label="用户名" style="usertext" prop="username">
+          <el-form-item label="用户名"  prop="username">
             <el-input v-model="ruleForm.username" />
           </el-form-item>
         </el-row>
@@ -164,7 +164,5 @@ export default {
   margin-left: 35%;
   margin-top: -40%;
 }
-#usertext{
-  color: white;
-}
+
 </style>

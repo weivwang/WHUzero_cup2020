@@ -17,7 +17,7 @@
       </div> -->
     <vue-fab mainBtnColor="#3599DB" size="big" class="buttons">
       <fab-item @clickItem="gotoMap" :idx="0" title="探险图" icon="map" />
-      <fab-item @clickItem="gotoStar" :idx="1" title="我的收藏" icon="star_outline" />
+      <fab-item @clickItem="gotoStar" :idx="1" title="卡片" icon="star_outline" />
     </vue-fab>
   </div>
 </template>
