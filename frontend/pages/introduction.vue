@@ -8,7 +8,7 @@
     <div v-swiper:mySwiper="swiperOption" class="swiperWrap">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <home title="行政楼" background-image-file-name="WHUDefault.jpg"></home>
+          <home title="行政楼" background-image-file-name="itemAndBackground/BgAdmFront.JPG"></home>
         </div>
         <div class="swiper-slide">
           <detail
@@ -16,7 +16,7 @@
             :card-content="administrationIntroduction"
             :card-images-file-name="['WHUDefault.jpg']"
             card-swiper-change-time="2000"
-            background-image-file-name="WHUDefault.jpg"></detail>
+            background-image-file-name="itemAndBackground/BgAdm2.JPG"></detail>
         </div>
         <div class="swiper-slide">
           <slide :items-in="items" background-image-file-name="WHUDefault.jpg">
@@ -42,7 +42,7 @@
           </slide>
         </div>
         <div class="swiper-slide">
-          <comment ref="comment" articleId="99" background-image-file-name="WHUDefault.jpg"></comment>
+          <comment ref="comment" articleId="99" background-image-file-name="itemAndBackground/BgAdmComment.JPG"></comment>
         </div>
       </div>
 <!--      <div class="swiper-pagination swiper-pagination-bullets"></div>-->
@@ -89,7 +89,7 @@ export default {
           imageFileName: 'WHUAdministrationBuilding.png',
           aniTime: 0.3,
           cardTitle: '行政楼',
-          cardContent: 'this.administrationIntroduction',
+          cardContent: '武汉大学（Wuhan University）简称“武大”，是中华人民共和国教育部直属的综合性全国重点大学；位列“世界一流大学和一流学科”、“985工程”、“211工程”；入选学位授权自主审核单位、“珠峰计划”、“强基计划”、“2011计划”、“111计划”、卓越工程师教育培养计划、卓越法律人才教育培养计划、卓越医生教育培养计划、国家建设高水平大学公派研究生项目、国家级新工科研究与实践项目、一流网络安全学院建设示范项目高校、中国政府奖学金来华留学生接收院校、全国深化创新创业教育改革示范高校、国家大学生文化素质教育基地、大众创业万众创新示范基地、基础学科拔尖学生培养计划2.0基地，为欧亚-太平洋大学联盟、大学通识教育联盟、中国高校行星科学联盟、法学教育创新联盟、医学“双一流”建设联盟成员。',
           cardImageFileName: 'WHUDefault.jpg',
           width: 38,
           height: 49,
