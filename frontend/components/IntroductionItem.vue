@@ -386,6 +386,8 @@ export default {
   padding-bottom: 10px;
 }
 
+
+
 /*.new-review-box {*/
 /*  width: 100%;*/
 /*}*/
