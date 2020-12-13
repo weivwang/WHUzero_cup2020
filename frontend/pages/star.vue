@@ -70,7 +70,7 @@
             </el-card>
           </el-col>
         </el-row> -->
-        <waterfall :line-gap="200" :watch="items">
+        <waterfall :line-gap="300" :watch="items">
           <!-- each component is wrapped by a waterfall slot -->
           <waterfall-slot
             v-for="(item, index) in items"
@@ -105,11 +105,9 @@
             <div class="item">
               <div
                 class="card"
-                style="
-                  background-image: url(https://p0.meituan.net/movie/dbc7ef7ade6ee49ff25bbc7fd7620fd9528767.jpg@464w_644h_1e_1c);
-                "
+                :style="{ backgroundImage:'url('+item.img+')' }"
               >
-                <span class="title">大鱼海棠</span>
+                <span class="title">{{item.name}}</span>
               </div>
             </div>
           </waterfall-slot>
@@ -128,135 +126,137 @@ export default {
     return {
       items: [
         {
-          width: 100,
+          img:  require("../static/itemAndBackground/BgJiaoSanFront.jpg"),
+          name: "教三",
+          width: 300,
           height: 200,
           id: 1,
         },
-        {
-          width: 100,
-          height: 100,
-          id: 2,
-        },
-        {
-          width: 100,
-          height: 300,
-          id: 3,
-        },
-        {
-          width: 100,
-          height: 250,
-          id: 4,
-        },
-        {
-          width: 100,
-          height: 50,
-          id: 5,
-        },
-        {
-          width: 100,
-          height: 200,
-          id: 6,
-        },
-        {
-          width: 100,
-          height: 100,
-          id: 7,
-        },
-        {
-          width: 100,
-          height: 300,
-          id: 8,
-        },
-        {
-          width: 100,
-          height: 250,
-          id: 9,
-        },
-        {
-          width: 100,
-          height: 50,
-          id: 10,
-        },
-        {
-          width: 100,
-          height: 200,
-          id: 11,
-        },
-        {
-          width: 100,
-          height: 100,
-          id: 12,
-        },
-        {
-          width: 100,
-          height: 300,
-          id: 13,
-        },
-        {
-          width: 100,
-          height: 250,
-          id: 14,
-        },
-        {
-          width: 100,
-          height: 50,
-          id: 15,
-        },
-        {
-          width: 100,
-          height: 200,
-          id: 16,
-        },
-        {
-          width: 100,
-          height: 100,
-          id: 17,
-        },
-        {
-          width: 100,
-          height: 300,
-          id: 18,
-        },
-        {
-          width: 100,
-          height: 250,
-          id: 19,
-        },
-        {
-          width: 100,
-          height: 50,
-          id: 20,
-        },
-        {
-          width: 100,
-          height: 200,
-          id: 21,
-        },
-        {
-          width: 100,
-          height: 100,
-          id: 22,
-        },
-        {
-          width: 100,
-          height: 300,
-          id: 23,
-        },
-        {
-          width: 100,
-          height: 250,
-          id: 24,
-        },
-        {
-          width: 100,
-          height: 50,
-          id: 25,
-        },
-        {
-          width: 100,
-          height: 200,
-          id: 26,
-        },
+        // {
+        //   width: 300,
+        //   height: 100,
+        //   id: 2,
+        // },
+        // {
+        //   width: 300,
+        //   height: 300,
+        //   id: 3,
+        // },
+        // {
+        //   width: 300,
+        //   height: 250,
+        //   id: 4,
+        // },
+        // {
+        //   width: 300,
+        //   height: 50,
+        //   id: 5,
+        // },
+        // {
+        //   width: 300,
+        //   height: 200,
+        //   id: 6,
+        // },
+        // {
+        //   width: 300,
+        //   height: 100,
+        //   id: 7,
+        // },
+        // {
+        //   width: 300,
+        //   height: 300,
+        //   id: 8,
+        // },
+        // {
+        //   width: 300,
+        //   height: 250,
+        //   id: 9,
+        // },
+        // {
+        //   width: 300,
+        //   height: 50,
+        //   id: 10,
+        // },
+        // {
+        //   width: 300,
+        //   height: 200,
+        //   id: 11,
+        // },
+        // {
+        //   width: 300,
+        //   height: 100,
+        //   id: 12,
+        // },
+        // {
+        //   width: 300,
+        //   height: 300,
+        //   id: 13,
+        // },
+        // {
+        //   width: 300,
+        //   height: 250,
+        //   id: 14,
+        // },
+        // {
+        //   width: 300,
+        //   height: 50,
+        //   id: 15,
+        // },
+        // {
+        //   width: 300,
+        //   height: 200,
+        //   id: 16,
+        // },
+        // {
+        //   width: 300,
+        //   height: 100,
+        //   id: 17,
+        // },
+        // {
+        //   width: 300,
+        //   height: 300,
+        //   id: 18,
+        // },
+        // {
+        //   width: 300,
+        //   height: 250,
+        //   id: 19,
+        // },
+        // {
+        //   width: 300,
+        //   height: 50,
+        //   id: 20,
+        // },
+        // {
+        //   width: 300,
+        //   height: 200,
+        //   id: 21,
+        // },
+        // {
+        //   width: 300,
+        //   height: 100,
+        //   id: 22,
+        // },
+        // {
+        //   width: 300,
+        //   height: 300,
+        //   id: 23,
+        // },
+        // {
+        //   width: 300,
+        //   height: 250,
+        //   id: 24,
+        // },
+        // {
+        //   width: 300,
+        //   height: 50,
+        //   id: 25,
+        // },
+        // {
+        //   width: 300,
+        //   height: 200,
+        //   id: 26,
+        // },
       ],
     };
   },
@@ -354,6 +354,7 @@ export default {
 }
 
 .card {
+  /* background-image: url(../static/itemAndBackground/BgJiaoSanFront.jpg); */
   position: absolute;
   width: 100%;
   height: 100%;
