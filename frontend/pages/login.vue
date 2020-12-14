@@ -5,7 +5,7 @@
  -->
 <template>
   <div class="login">
-    <el-header>
+    <el-header style="position: fixed; width: 100%;">
       <div>
         <i
           class="el-icon-arrow-left back-btn"
@@ -13,7 +13,7 @@
 
         ></i>
         <i class="el-icon-user" style="margin-right: 5px"></i>
-        <span>Login</span>
+        <span>登录</span>
       </div></el-header
     >
     <img src="../static/wanlin.jpg" class="backimg" />

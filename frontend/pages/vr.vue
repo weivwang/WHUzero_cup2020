@@ -7,7 +7,7 @@
   <div>
     <div id="pano" style="width: 100%; height: 100%"></div>
     <div id="subject">
-      <p id="subtext">武大探险</p>
+      <p id="subtext">武大</p>
     </div>
     <!-- <div class="btn">
         <a class="btnName" href="/star">我的收藏</a>
@@ -18,6 +18,8 @@
     <vue-fab mainBtnColor="#3599DB" size="big" class="buttons">
       <fab-item @clickItem="gotoMap" :idx="0" title="探险图" icon="map" />
       <fab-item @clickItem="gotoStar" :idx="1" title="卡片" icon="star_outline" />
+      <fab-item @clickItem="gotoLogin" :idx="2" title="登录" icon="perm_identity" v-if="!$store.state.token"/>
+      <fab-item @clickItem="logOut" :idx="2" title="退出登录" icon="exit_to_app" v-else/>
     </vue-fab>
   </div>
 </template>
@@ -39,11 +41,18 @@ export default {
     this.timer2 = setTimeout(this.init, 300);
   },
   methods: {
+    logOut: function(){
+this.$store.commit("setToken", null);
+      this.$message.info('已退出登录');
+    },
     gotoMap(){
       this.$router.push('/map');
     },
     gotoStar(){
       this.$router.push('/star');
+    },
+    gotoLogin(){
+      this.$router.push('/login');
     },
     init() {
       embedpano({

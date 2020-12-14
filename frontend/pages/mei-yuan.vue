@@ -18,7 +18,7 @@
 梅花是中华民族的精神象征，具有强大而普遍的感染力和推动力。梅花坚韧不拔，不屈不挠，奋勇当先，自强不息的精神品质潜移默化的影响着住在梅园的同学。"
             :card-images-file-name="['itemAndBackground/BgMeiYuan3.JPG']"
             card-swiper-change-time="2000"
-            background-image-file-name="itemAndBackground/BgMeiYuan2.JPG"></detail>
+            background-image-file-name="itemAndBackground/BgMeiYuan2.jpg"></detail>
         </div>
         <div class="swiper-slide">
           <slide :items-in="items" background-image-file-name="itemAndBackground/BgMeiYuan.JPG">
